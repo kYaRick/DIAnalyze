@@ -55,6 +55,7 @@ namespace kYa_DIA_lab_1
                 Console.Write($"{item} ");
             }
             Console.WriteLine();
+            Console.ReadKey();
 
         }
     }
