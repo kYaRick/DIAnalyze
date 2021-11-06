@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DIAnalyze_lab_2
 {
@@ -17,7 +14,18 @@ namespace DIAnalyze_lab_2
         private float[] intr = new float[2];
         private Random noice = new Random();
 
-        private ushort l = 0;
+        public ushort l
+        {
+            get
+            {
+                return _l;
+            }
+            set
+            {
+                _l = value;
+            }
+        }
+        private ushort _l = 0;
         public ushort GetL { get { return l; } }
 
         public DIA_lab_2() {}
@@ -55,8 +63,8 @@ namespace DIAnalyze_lab_2
                         break;
                     case Method.MovingAvg:
                         {
-                            var rnd = new Random();
-                            l = (ushort)rnd.Next(2, 20);
+                            var rnd = new Random();   
+                            l = l == 0 ? (ushort)rnd.Next(2, 20) : l;
                             return GetYMovingAvg(GetArrPoints(sPointX, fPointX, step, Method.NoiceFunc), l);
                         }
                     default:
@@ -67,7 +75,6 @@ namespace DIAnalyze_lab_2
 
             return Points;
         }
-
         private List<double[]> GetYMovingAvg(List<double[]> Point, ushort l)
         {
             List<double[]> MovAvgPoints = new List<double[]>();
@@ -80,7 +87,7 @@ namespace DIAnalyze_lab_2
                 else
                 {
                     double temp = 0;
-                    for (ushort j = (ushort)(i - avg); j<i+avg-1; j++)
+                    for (ushort j = (ushort)(i - avg); j<i+avg; j++)
                     {
                         temp += Point[j][1];
                     }
