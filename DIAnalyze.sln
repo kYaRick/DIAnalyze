@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testspace", "testspace\testspace.csproj", "{C37346AA-65D1-4A99-84EE-6C81EA407B88}"
 EndProject
@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DIAnalyze_lab_1", "DIAnalyz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIAnalyze_lab_2", "DIAnalyze_lab_2\DIAnalyze_lab_2.csproj", "{222ECC2D-69CC-493B-A73C-6EA742EFDD1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIAnalyze_lab_3", "WindowsFormsApp1\DIAnalyze_lab_3.csproj", "{B40D1CE2-59BF-4C83-87D3-59C7EEC81AB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIAnalyze_lab_3", "DIAnalyze_lab_3\DIAnalyze_lab_3.csproj", "{B40D1CE2-59BF-4C83-87D3-59C7EEC81AB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
