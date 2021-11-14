@@ -18,7 +18,7 @@ namespace kYa_DIA_lab_1
                 do
                 {
                     var r = new Random();
-                    rArr[i] = Math.Round(r.NextDouble(), 2);
+                    rArr[i] = Math.Round(r.NextDouble(), 5)*1000;
 #if DEBUG
                     Console.Write(rArr[i] + " ");
 #endif

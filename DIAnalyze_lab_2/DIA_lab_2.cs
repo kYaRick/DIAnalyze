@@ -7,12 +7,14 @@ namespace DIAnalyze_lab_2
     {
         DefFunc,
         NoiceFunc,
+        UpdateAvg,
         MovingAvg
     }
     class DIA_lab_2
     {
         private float[] intr = new float[2];
         private Random noice = new Random();
+        private static List<double[]> noiseY = new List<double[]>();
 
         public ushort l
         {
@@ -59,13 +61,18 @@ namespace DIAnalyze_lab_2
                                     Math.Round(intr[0], 2),
                                     Math.Round(Func(intr[0])+(noice.Next(-2500, 2500)*Math.Pow(10, -4)), 4)
                             });
+                            noiseY = Points;
                         }
                         break;
+                    case Method.UpdateAvg:
+                        {
+                            return GetYUpdateAvg(noiseY);
+                        }
                     case Method.MovingAvg:
                         {
                             var rnd = new Random();   
                             l = l == 0 ? (ushort)rnd.Next(2, 20) : l;
-                            return GetYMovingAvg(GetArrPoints(sPointX, fPointX, step, Method.NoiceFunc), l);
+                            return GetYMovingAvg(noiseY, l); ;
                         }
                     default:
                         break;
@@ -74,6 +81,21 @@ namespace DIAnalyze_lab_2
             }
 
             return Points;
+        }
+
+        private List<double[]> GetYUpdateAvg(List<double[]> Point)
+        {
+            List<double[]> UpdateAvgPoints = new List<double[]>();
+            ushort len = (ushort)Point.Count;
+
+            UpdateAvgPoints.Add(new double[] { Point[0][0], Point[0][1]});
+
+            for (ushort i = 1; i < len; i++)
+            {
+                UpdateAvgPoints.Add(new double[] { Point[i][0], UpdateAvgPoints[i-1][1]+(Point[i][1] - UpdateAvgPoints[i-1][1])/i});
+            }
+
+            return UpdateAvgPoints;
         }
         private List<double[]> GetYMovingAvg(List<double[]> Point, ushort l)
         {
