@@ -36,28 +36,28 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.configurationBox = new System.Windows.Forms.GroupBox();
-            this.resultBox = new System.Windows.Forms.GroupBox();
-            this.updateButton = new System.Windows.Forms.Button();
-            this.lTextBox = new System.Windows.Forms.TextBox();
-            this.resTBa0 = new System.Windows.Forms.TextBox();
-            this.resTBa1 = new System.Windows.Forms.TextBox();
-            this.resTBa2 = new System.Windows.Forms.TextBox();
-            this.lLable = new System.Windows.Forms.Label();
-            this.comboboxMethods = new System.Windows.Forms.ComboBox();
-            this.a0Lable = new System.Windows.Forms.Label();
-            this.a1Lable = new System.Windows.Forms.Label();
-            this.a2Lable = new System.Windows.Forms.Label();
+            this.FunctionBox = new System.Windows.Forms.GroupBox();
             this.radioFLinear = new System.Windows.Forms.RadioButton();
             this.radioFSquare = new System.Windows.Forms.RadioButton();
-            this.FunctionBox = new System.Windows.Forms.GroupBox();
-            this.btClose = new System.Windows.Forms.Button();
+            this.lLable = new System.Windows.Forms.Label();
+            this.lTextBox = new System.Windows.Forms.TextBox();
+            this.resultBox = new System.Windows.Forms.GroupBox();
             this.btShowInfo = new System.Windows.Forms.Button();
+            this.a2Lable = new System.Windows.Forms.Label();
+            this.comboboxMethods = new System.Windows.Forms.ComboBox();
+            this.a1Lable = new System.Windows.Forms.Label();
+            this.a0Lable = new System.Windows.Forms.Label();
+            this.resTBa2 = new System.Windows.Forms.TextBox();
+            this.resTBa1 = new System.Windows.Forms.TextBox();
+            this.resTBa0 = new System.Windows.Forms.TextBox();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.btClose = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ProgramName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainChart)).BeginInit();
             this.configurationBox.SuspendLayout();
-            this.resultBox.SuspendLayout();
             this.FunctionBox.SuspendLayout();
+            this.resultBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,9 +118,9 @@
             // 
             // configurationBox
             // 
+            this.configurationBox.Controls.Add(this.lTextBox);
             this.configurationBox.Controls.Add(this.FunctionBox);
             this.configurationBox.Controls.Add(this.lLable);
-            this.configurationBox.Controls.Add(this.lTextBox);
             this.configurationBox.Location = new System.Drawing.Point(900, 139);
             this.configurationBox.Name = "configurationBox";
             this.configurationBox.Size = new System.Drawing.Size(133, 120);
@@ -128,134 +128,16 @@
             this.configurationBox.TabStop = false;
             this.configurationBox.Text = "Configuration";
             // 
-            // resultBox
+            // FunctionBox
             // 
-            this.resultBox.Controls.Add(this.btShowInfo);
-            this.resultBox.Controls.Add(this.a2Lable);
-            this.resultBox.Controls.Add(this.comboboxMethods);
-            this.resultBox.Controls.Add(this.a1Lable);
-            this.resultBox.Controls.Add(this.a0Lable);
-            this.resultBox.Controls.Add(this.resTBa2);
-            this.resultBox.Controls.Add(this.resTBa1);
-            this.resultBox.Controls.Add(this.resTBa0);
-            this.resultBox.Location = new System.Drawing.Point(900, 265);
-            this.resultBox.Name = "resultBox";
-            this.resultBox.Size = new System.Drawing.Size(133, 160);
-            this.resultBox.TabIndex = 2;
-            this.resultBox.TabStop = false;
-            this.resultBox.Text = "Results";
-            // 
-            // updateButton
-            // 
-            this.updateButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.updateButton.FlatAppearance.BorderSize = 0;
-            this.updateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateButton.Location = new System.Drawing.Point(922, 431);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(84, 41);
-            this.updateButton.TabIndex = 3;
-            this.updateButton.Text = "Update chart";
-            this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
-            // 
-            // lTextBox
-            // 
-            this.lTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lTextBox.ForeColor = System.Drawing.Color.Black;
-            this.lTextBox.Location = new System.Drawing.Point(64, 92);
-            this.lTextBox.Name = "lTextBox";
-            this.lTextBox.Size = new System.Drawing.Size(24, 13);
-            this.lTextBox.TabIndex = 0;
-            this.lTextBox.Text = "1";
-            // 
-            // resTBa0
-            // 
-            this.resTBa0.BackColor = System.Drawing.Color.Silver;
-            this.resTBa0.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.resTBa0.ForeColor = System.Drawing.Color.White;
-            this.resTBa0.Location = new System.Drawing.Point(59, 56);
-            this.resTBa0.Name = "resTBa0";
-            this.resTBa0.ReadOnly = true;
-            this.resTBa0.Size = new System.Drawing.Size(52, 13);
-            this.resTBa0.TabIndex = 1;
-            this.resTBa0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // resTBa1
-            // 
-            this.resTBa1.BackColor = System.Drawing.Color.Silver;
-            this.resTBa1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.resTBa1.ForeColor = System.Drawing.Color.White;
-            this.resTBa1.Location = new System.Drawing.Point(59, 82);
-            this.resTBa1.Name = "resTBa1";
-            this.resTBa1.ReadOnly = true;
-            this.resTBa1.Size = new System.Drawing.Size(52, 13);
-            this.resTBa1.TabIndex = 2;
-            this.resTBa1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // resTBa2
-            // 
-            this.resTBa2.BackColor = System.Drawing.Color.Silver;
-            this.resTBa2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.resTBa2.ForeColor = System.Drawing.Color.White;
-            this.resTBa2.Location = new System.Drawing.Point(59, 108);
-            this.resTBa2.Name = "resTBa2";
-            this.resTBa2.ReadOnly = true;
-            this.resTBa2.Size = new System.Drawing.Size(52, 13);
-            this.resTBa2.TabIndex = 3;
-            this.resTBa2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lLable
-            // 
-            this.lLable.AutoSize = true;
-            this.lLable.Location = new System.Drawing.Point(46, 92);
-            this.lLable.Name = "lLable";
-            this.lLable.Size = new System.Drawing.Size(21, 13);
-            this.lLable.TabIndex = 1;
-            this.lLable.Text = "l = ";
-            // 
-            // comboboxMethods
-            // 
-            this.comboboxMethods.CausesValidation = false;
-            this.comboboxMethods.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboboxMethods.ForeColor = System.Drawing.Color.Black;
-            this.comboboxMethods.FormattingEnabled = true;
-            this.comboboxMethods.Items.AddRange(new object[] {
-            "linear empirical",
-            "quadratic empirical"});
-            this.comboboxMethods.Location = new System.Drawing.Point(6, 19);
-            this.comboboxMethods.Name = "comboboxMethods";
-            this.comboboxMethods.Size = new System.Drawing.Size(121, 21);
-            this.comboboxMethods.TabIndex = 2;
-            this.comboboxMethods.SelectedIndexChanged += new System.EventHandler(this.comboboxMethods_SelectedIndexChanged);
-            // 
-            // a0Lable
-            // 
-            this.a0Lable.AutoSize = true;
-            this.a0Lable.Location = new System.Drawing.Point(22, 56);
-            this.a0Lable.Name = "a0Lable";
-            this.a0Lable.Size = new System.Drawing.Size(31, 13);
-            this.a0Lable.TabIndex = 3;
-            this.a0Lable.Text = "a0 = ";
-            // 
-            // a1Lable
-            // 
-            this.a1Lable.AutoSize = true;
-            this.a1Lable.BackColor = System.Drawing.Color.Transparent;
-            this.a1Lable.Location = new System.Drawing.Point(22, 82);
-            this.a1Lable.Name = "a1Lable";
-            this.a1Lable.Size = new System.Drawing.Size(31, 13);
-            this.a1Lable.TabIndex = 3;
-            this.a1Lable.Text = "a1 = ";
-            // 
-            // a2Lable
-            // 
-            this.a2Lable.AutoSize = true;
-            this.a2Lable.Location = new System.Drawing.Point(22, 108);
-            this.a2Lable.Name = "a2Lable";
-            this.a2Lable.Size = new System.Drawing.Size(31, 13);
-            this.a2Lable.TabIndex = 3;
-            this.a2Lable.Text = "a3 = ";
+            this.FunctionBox.Controls.Add(this.radioFLinear);
+            this.FunctionBox.Controls.Add(this.radioFSquare);
+            this.FunctionBox.Location = new System.Drawing.Point(6, 19);
+            this.FunctionBox.Name = "FunctionBox";
+            this.FunctionBox.Size = new System.Drawing.Size(121, 67);
+            this.FunctionBox.TabIndex = 5;
+            this.FunctionBox.TabStop = false;
+            this.FunctionBox.Text = "Functions";
             // 
             // radioFLinear
             // 
@@ -281,16 +163,148 @@
             this.radioFSquare.Text = "y = -0.2x^2-3x-2";
             this.radioFSquare.UseVisualStyleBackColor = true;
             // 
-            // FunctionBox
+            // lLable
             // 
-            this.FunctionBox.Controls.Add(this.radioFLinear);
-            this.FunctionBox.Controls.Add(this.radioFSquare);
-            this.FunctionBox.Location = new System.Drawing.Point(6, 19);
-            this.FunctionBox.Name = "FunctionBox";
-            this.FunctionBox.Size = new System.Drawing.Size(121, 67);
-            this.FunctionBox.TabIndex = 5;
-            this.FunctionBox.TabStop = false;
-            this.FunctionBox.Text = "Functions";
+            this.lLable.AutoSize = true;
+            this.lLable.Location = new System.Drawing.Point(48, 92);
+            this.lLable.Name = "lLable";
+            this.lLable.Size = new System.Drawing.Size(21, 13);
+            this.lLable.TabIndex = 1;
+            this.lLable.Text = "l = ";
+            // 
+            // lTextBox
+            // 
+            this.lTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lTextBox.ForeColor = System.Drawing.Color.Black;
+            this.lTextBox.Location = new System.Drawing.Point(65, 92);
+            this.lTextBox.Name = "lTextBox";
+            this.lTextBox.Size = new System.Drawing.Size(32, 13);
+            this.lTextBox.TabIndex = 0;
+            this.lTextBox.Text = "1";
+            // 
+            // resultBox
+            // 
+            this.resultBox.Controls.Add(this.btShowInfo);
+            this.resultBox.Controls.Add(this.a2Lable);
+            this.resultBox.Controls.Add(this.comboboxMethods);
+            this.resultBox.Controls.Add(this.a1Lable);
+            this.resultBox.Controls.Add(this.a0Lable);
+            this.resultBox.Controls.Add(this.resTBa2);
+            this.resultBox.Controls.Add(this.resTBa1);
+            this.resultBox.Controls.Add(this.resTBa0);
+            this.resultBox.Location = new System.Drawing.Point(900, 265);
+            this.resultBox.Name = "resultBox";
+            this.resultBox.Size = new System.Drawing.Size(133, 160);
+            this.resultBox.TabIndex = 2;
+            this.resultBox.TabStop = false;
+            this.resultBox.Text = "Results";
+            // 
+            // btShowInfo
+            // 
+            this.btShowInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btShowInfo.FlatAppearance.BorderSize = 0;
+            this.btShowInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btShowInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btShowInfo.Location = new System.Drawing.Point(27, 130);
+            this.btShowInfo.Name = "btShowInfo";
+            this.btShowInfo.Size = new System.Drawing.Size(85, 22);
+            this.btShowInfo.TabIndex = 5;
+            this.btShowInfo.Text = "show error";
+            this.btShowInfo.UseVisualStyleBackColor = false;
+            this.btShowInfo.Click += new System.EventHandler(this.btShowInfo_Click);
+            // 
+            // a2Lable
+            // 
+            this.a2Lable.AutoSize = true;
+            this.a2Lable.Location = new System.Drawing.Point(22, 108);
+            this.a2Lable.Name = "a2Lable";
+            this.a2Lable.Size = new System.Drawing.Size(31, 13);
+            this.a2Lable.TabIndex = 3;
+            this.a2Lable.Text = "a3 = ";
+            // 
+            // comboboxMethods
+            // 
+            this.comboboxMethods.CausesValidation = false;
+            this.comboboxMethods.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxMethods.ForeColor = System.Drawing.Color.Black;
+            this.comboboxMethods.FormattingEnabled = true;
+            this.comboboxMethods.Items.AddRange(new object[] {
+            "linear empirical",
+            "quadratic empirical"});
+            this.comboboxMethods.Location = new System.Drawing.Point(6, 19);
+            this.comboboxMethods.Name = "comboboxMethods";
+            this.comboboxMethods.Size = new System.Drawing.Size(121, 21);
+            this.comboboxMethods.TabIndex = 2;
+            this.comboboxMethods.SelectedIndexChanged += new System.EventHandler(this.comboboxMethods_SelectedIndexChanged);
+            // 
+            // a1Lable
+            // 
+            this.a1Lable.AutoSize = true;
+            this.a1Lable.BackColor = System.Drawing.Color.Transparent;
+            this.a1Lable.Location = new System.Drawing.Point(22, 82);
+            this.a1Lable.Name = "a1Lable";
+            this.a1Lable.Size = new System.Drawing.Size(31, 13);
+            this.a1Lable.TabIndex = 3;
+            this.a1Lable.Text = "a1 = ";
+            // 
+            // a0Lable
+            // 
+            this.a0Lable.AutoSize = true;
+            this.a0Lable.Location = new System.Drawing.Point(22, 56);
+            this.a0Lable.Name = "a0Lable";
+            this.a0Lable.Size = new System.Drawing.Size(31, 13);
+            this.a0Lable.TabIndex = 3;
+            this.a0Lable.Text = "a0 = ";
+            // 
+            // resTBa2
+            // 
+            this.resTBa2.BackColor = System.Drawing.Color.Silver;
+            this.resTBa2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resTBa2.ForeColor = System.Drawing.Color.White;
+            this.resTBa2.Location = new System.Drawing.Point(59, 108);
+            this.resTBa2.Name = "resTBa2";
+            this.resTBa2.ReadOnly = true;
+            this.resTBa2.Size = new System.Drawing.Size(52, 13);
+            this.resTBa2.TabIndex = 3;
+            this.resTBa2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // resTBa1
+            // 
+            this.resTBa1.BackColor = System.Drawing.Color.Silver;
+            this.resTBa1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resTBa1.ForeColor = System.Drawing.Color.White;
+            this.resTBa1.Location = new System.Drawing.Point(59, 82);
+            this.resTBa1.Name = "resTBa1";
+            this.resTBa1.ReadOnly = true;
+            this.resTBa1.Size = new System.Drawing.Size(52, 13);
+            this.resTBa1.TabIndex = 2;
+            this.resTBa1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // resTBa0
+            // 
+            this.resTBa0.BackColor = System.Drawing.Color.Silver;
+            this.resTBa0.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resTBa0.ForeColor = System.Drawing.Color.White;
+            this.resTBa0.Location = new System.Drawing.Point(59, 56);
+            this.resTBa0.Name = "resTBa0";
+            this.resTBa0.ReadOnly = true;
+            this.resTBa0.Size = new System.Drawing.Size(52, 13);
+            this.resTBa0.TabIndex = 1;
+            this.resTBa0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // updateButton
+            // 
+            this.updateButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.updateButton.FlatAppearance.BorderSize = 0;
+            this.updateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateButton.Location = new System.Drawing.Point(922, 431);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(84, 41);
+            this.updateButton.TabIndex = 3;
+            this.updateButton.Text = "Update chart";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // btClose
             // 
@@ -307,20 +321,6 @@
             this.btClose.Text = "x";
             this.btClose.UseVisualStyleBackColor = false;
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
-            // 
-            // btShowInfo
-            // 
-            this.btShowInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btShowInfo.FlatAppearance.BorderSize = 0;
-            this.btShowInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btShowInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btShowInfo.Location = new System.Drawing.Point(27, 130);
-            this.btShowInfo.Name = "btShowInfo";
-            this.btShowInfo.Size = new System.Drawing.Size(85, 22);
-            this.btShowInfo.TabIndex = 5;
-            this.btShowInfo.Text = "show error";
-            this.btShowInfo.UseVisualStyleBackColor = false;
-            this.btShowInfo.Click += new System.EventHandler(this.btShowInfo_Click);
             // 
             // panel1
             // 
@@ -361,10 +361,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainChart)).EndInit();
             this.configurationBox.ResumeLayout(false);
             this.configurationBox.PerformLayout();
-            this.resultBox.ResumeLayout(false);
-            this.resultBox.PerformLayout();
             this.FunctionBox.ResumeLayout(false);
             this.FunctionBox.PerformLayout();
+            this.resultBox.ResumeLayout(false);
+            this.resultBox.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
