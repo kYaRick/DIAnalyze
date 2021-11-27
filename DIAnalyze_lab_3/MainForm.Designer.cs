@@ -36,11 +36,11 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.configurationBox = new System.Windows.Forms.GroupBox();
+            this.lTextBox = new System.Windows.Forms.TextBox();
             this.FunctionBox = new System.Windows.Forms.GroupBox();
             this.radioFLinear = new System.Windows.Forms.RadioButton();
             this.radioFSquare = new System.Windows.Forms.RadioButton();
             this.lLable = new System.Windows.Forms.Label();
-            this.lTextBox = new System.Windows.Forms.TextBox();
             this.resultBox = new System.Windows.Forms.GroupBox();
             this.btShowInfo = new System.Windows.Forms.Button();
             this.a2Lable = new System.Windows.Forms.Label();
@@ -128,6 +128,16 @@
             this.configurationBox.TabStop = false;
             this.configurationBox.Text = "Configuration";
             // 
+            // lTextBox
+            // 
+            this.lTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lTextBox.ForeColor = System.Drawing.Color.Black;
+            this.lTextBox.Location = new System.Drawing.Point(65, 92);
+            this.lTextBox.Name = "lTextBox";
+            this.lTextBox.Size = new System.Drawing.Size(32, 13);
+            this.lTextBox.TabIndex = 0;
+            this.lTextBox.Text = "1";
+            // 
             // FunctionBox
             // 
             this.FunctionBox.Controls.Add(this.radioFLinear);
@@ -171,16 +181,6 @@
             this.lLable.Size = new System.Drawing.Size(21, 13);
             this.lLable.TabIndex = 1;
             this.lLable.Text = "l = ";
-            // 
-            // lTextBox
-            // 
-            this.lTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lTextBox.ForeColor = System.Drawing.Color.Black;
-            this.lTextBox.Location = new System.Drawing.Point(65, 92);
-            this.lTextBox.Name = "lTextBox";
-            this.lTextBox.Size = new System.Drawing.Size(32, 13);
-            this.lTextBox.TabIndex = 0;
-            this.lTextBox.Text = "1";
             // 
             // resultBox
             // 
