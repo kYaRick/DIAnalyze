@@ -7,7 +7,8 @@ using System.Collections.Generic;
 
 namespace DIAnalyze_lab_6
 {
-    struct Point {
+    struct Point
+    {
 
         public Point(double x, double y)
         {
@@ -22,8 +23,7 @@ namespace DIAnalyze_lab_6
         {
             return new Point(p1.X + p2.X, p1.Y + p2.Y);
         }
-
-        public static Point operator/(Point p1,double n)
+        public static Point operator/(Point p1, double n)
         {
             return new Point(p1.X / n, p1.Y / n);
         }
@@ -50,6 +50,9 @@ namespace DIAnalyze_lab_6
     public partial class formsPlot : Form
     {
         double _sigma = 0.1;
+        uint _maxPoints = 50;
+        bool _flagShowInputCenters = false;
+        bool _flagShowCalculatedCenters = false;
 
         Mode _mode = Mode.PredefinedPoints;
 
@@ -72,7 +75,9 @@ namespace DIAnalyze_lab_6
             return new Point(x, y);
         }
 
+        List<Point> points;
         List<Point> _centres;
+        List<Point> _new_centres;
         Color[] _colors;
 
 
@@ -88,6 +93,8 @@ namespace DIAnalyze_lab_6
         };
 
         _colors = new Color[] {Color.Orange, Color.Blue, Color.Violet};
+
+            _updateBtn_Click(this, EventArgs.Empty);
         }
 
         IEnumerable<Point[]> KMeans(Point[] points, int countOfCluters)
@@ -123,9 +130,11 @@ namespace DIAnalyze_lab_6
                     }
                     break;
             }
+
             while (true)
             {
                 var clusters = new Dictionary<int, List<Point>>();
+
                 for (int i = 0; i < countOfCluters; i++)
                 {
                     clusters[i] = new List<Point>();
@@ -135,6 +144,7 @@ namespace DIAnalyze_lab_6
                 {
                     double minDistance = double.MaxValue;
                     int clusterNumber = -1;
+
                     for (int i = 0; i < countOfCluters; i++)
                     {
                         var clusterCenter = prevCentres[i];
@@ -145,11 +155,13 @@ namespace DIAnalyze_lab_6
                             clusterNumber = i;
                         }
                     }
+
                     clusters[clusterNumber].Add(point);
                 }
 
                 var centres = new Point[countOfCluters];
-                foreach(var cluster in clusters)
+
+                foreach (var cluster in clusters)
                 {
                     var no = cluster.Key;
                     var clPoints = cluster.Value;
@@ -163,7 +175,8 @@ namespace DIAnalyze_lab_6
                 }
 
                 bool haventEqual = false;
-                for(int i = 0; i < countOfCluters; i++)
+
+                for (int i = 0; i < countOfCluters; i++)
                 {
                     bool haveEqual = false;
                     for(int j = 0; j < countOfCluters; j++)
@@ -180,7 +193,8 @@ namespace DIAnalyze_lab_6
                         break;
                     }
                 }
-                if(!haventEqual)
+
+                if (!haventEqual)
                 {
                     return clusters.Select(cluster => cluster.Value.ToArray());
                 }
@@ -188,6 +202,8 @@ namespace DIAnalyze_lab_6
                 {
                     prevCentres = centres;
                 }
+
+                _new_centres = centres.ToList();
             }
 
         }
@@ -195,12 +211,20 @@ namespace DIAnalyze_lab_6
         private void _updateBtn_Click(object sender, EventArgs e)
         {
             formsPlot1.Plot.Clear();
-            _sigma = double.Parse(_sigmaTB.Text);
-            var points = new List<Point>(_centres.Count * 40);
-            foreach (var center in _centres)
-            {
-                for (int i = 0; i < 40; i++)
-                    points.Add(GenerateRandom(center));
+
+            _maxPoints = (uint)nUDMaxPoints.Value;
+            nUDMaxPoints.Value = _maxPoints;
+
+            _sigma = (double)nUDSigma.Value;
+
+            if(checkBoxNewListOfPoints.Checked)
+            { 
+                points = new List<Point>((int)(_centres.Count * _maxPoints));
+                foreach (var center in _centres)
+                {
+                    for (int i = 0; i < _maxPoints; i++)
+                        points.Add(GenerateRandom(center));
+                }
             }
 
             var clusters = KMeans(points.ToArray(), _centres.Count).ToArray();
@@ -212,17 +236,23 @@ namespace DIAnalyze_lab_6
                 if (cluster.Length == 0)
                     continue;
 
-                formsPlot1.Plot.AddScatterPoints(cluster.Select(x => x.X).ToArray(), cluster.Select(x => x.Y).ToArray(), _colors[i]);
+                formsPlot1.Plot.AddScatterPoints(cluster.Select(x => x.X).ToArray(), cluster.Select(x => x.Y).ToArray(), _colors[i], 4);
             }
 
-            ShowCenters();
+            _showCenters();
 
             formsPlot1.Refresh();
         }
-
-        private void ShowCenters()
+        private void _showCenters()
         {
-            formsPlot1.Plot.AddScatterPoints(_centres.Select(x => x.X).ToArray(),_centres.Select(y => y.Y).ToArray(), Color.Red, markerSize: 8, markerShape: ScottPlot.MarkerShape.eks);
+            if (_flagShowInputCenters)
+            {
+                formsPlot1.Plot.AddScatterPoints(_centres.Select(x => x.X).ToArray(), _centres.Select(y => y.Y).ToArray(), Color.Red, markerSize: 7, markerShape: ScottPlot.MarkerShape.cross);
+            }
+            if (_flagShowCalculatedCenters)
+            {
+                formsPlot1.Plot.AddScatterPoints(_new_centres.Select(x => x.X).ToArray(), _new_centres.Select(y => y.Y).ToArray(), Color.Green, markerSize: 7, markerShape: ScottPlot.MarkerShape.filledSquare, label: "test");
+            }
         }
 
         private void _centresMode_CheckedChanged(object sender, EventArgs e)
@@ -236,6 +266,15 @@ namespace DIAnalyze_lab_6
         private void _fromFirst_CheckedChanged(object sender, EventArgs e)
         {
             _mode = Mode.FromFirstCluster;
+        }
+
+        private void _ckeckShowInputCenters_CheckStateChanged(object sender, EventArgs e)
+        {
+            _flagShowInputCenters = ckeckShowInputCenters.Checked;
+        }
+        private void _ckeckShowCalculatedCenters_CheckStateChanged(object sender, EventArgs e)
+        {
+            _flagShowCalculatedCenters = ckeckShowCalculatedCenters.Checked;
         }
     }
 }
