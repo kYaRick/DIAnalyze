@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._fromFirst = new System.Windows.Forms.RadioButton();
             this._centresMode = new System.Windows.Forms.RadioButton();
             this._randomMode = new System.Windows.Forms.RadioButton();
@@ -43,6 +44,7 @@
             this.nUDSigma = new System.Windows.Forms.NumericUpDown();
             this.groupBoxMethods = new System.Windows.Forms.GroupBox();
             this.checkBoxNewListOfPoints = new System.Windows.Forms.CheckBox();
+            this.toolTip_fromFirst = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nUDMaxPoints)).BeginInit();
             this.groupBoxDisplayOptions.SuspendLayout();
             this.groupBoxCalculation.SuspendLayout();
@@ -61,7 +63,8 @@
             this._fromFirst.Size = new System.Drawing.Size(150, 17);
             this._fromFirst.TabIndex = 2;
             this._fromFirst.TabStop = true;
-            this._fromFirst.Text = "random points based on sewn centers";
+            this._fromFirst.Text = "random points based on ...";
+            this.toolTip_fromFirst.SetToolTip(this._fromFirst, "random points based on sewn centers");
             this._fromFirst.UseVisualStyleBackColor = true;
             this._fromFirst.CheckedChanged += new System.EventHandler(this._fromFirst_CheckedChanged);
             // 
@@ -156,7 +159,7 @@
             // 
             this.groupBoxDisplayOptions.Controls.Add(this.ckeckShowInputCenters);
             this.groupBoxDisplayOptions.Controls.Add(this.ckeckShowCalculatedCenters);
-            this.groupBoxDisplayOptions.Location = new System.Drawing.Point(419, 227);
+            this.groupBoxDisplayOptions.Location = new System.Drawing.Point(418, 227);
             this.groupBoxDisplayOptions.Name = "groupBoxDisplayOptions";
             this.groupBoxDisplayOptions.Size = new System.Drawing.Size(200, 67);
             this.groupBoxDisplayOptions.TabIndex = 10;
@@ -289,6 +292,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBoxMethods;
         private System.Windows.Forms.CheckBox checkBoxNewListOfPoints;
+        private System.Windows.Forms.ToolTip toolTip_fromFirst;
     }
 }
 
