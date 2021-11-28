@@ -11,7 +11,7 @@ namespace DIAnalyze_lab_3
         public MainForm()
         {
             InitializeComponent();
-            ProgramName.Text = Text;
+            ProgramName.Text = "kYa_DIA_lab_3_"+Text;
             comboboxMethods.SelectedIndex = 0;
             BuildGraph(this);
         }
@@ -67,7 +67,6 @@ namespace DIAnalyze_lab_3
                         form.mainChart.Series[i].Points.AddXY(x, graphs[i][x]);
                     }
                 }
-
             form.comboboxMethods_SelectedIndexChanged(form.comboboxMethods, EventArgs.Empty);
         }
 
