@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.mainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.configurationBox = new System.Windows.Forms.GroupBox();
             this.lTextBox = new System.Windows.Forms.TextBox();
@@ -64,55 +64,55 @@
             // mainChart
             // 
             this.mainChart.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisX.MinorGrid.Enabled = true;
-            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea1.AxisX2.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisY.MinorGrid.Enabled = true;
-            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea1.AxisY2.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.BorderColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.mainChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.mainChart.Legends.Add(legend1);
-            this.mainChart.Location = new System.Drawing.Point(-2, 49);
+            chartArea2.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea2.AxisX.MinorGrid.Enabled = true;
+            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.AxisX2.LineColor = System.Drawing.Color.DarkGray;
+            chartArea2.AxisX2.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea2.AxisY.MinorGrid.Enabled = true;
+            chartArea2.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea2.AxisY2.LineColor = System.Drawing.Color.DarkGray;
+            chartArea2.BorderColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.mainChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.mainChart.Legends.Add(legend2);
+            this.mainChart.Location = new System.Drawing.Point(-2, 48);
             this.mainChart.Name = "mainChart";
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series1.Legend = "Legend1";
-            series1.MarkerSize = 10;
-            series1.Name = "base function";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            series2.Legend = "Legend1";
-            series2.Name = "base+noise";
-            series2.YValuesPerPoint = 2;
-            series3.BorderWidth = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series3.Legend = "Legend1";
-            series3.Name = "linear empirical";
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Color = System.Drawing.Color.Red;
-            series4.Legend = "Legend1";
-            series4.Name = "quadratic empirical";
-            this.mainChart.Series.Add(series1);
-            this.mainChart.Series.Add(series2);
-            this.mainChart.Series.Add(series3);
-            this.mainChart.Series.Add(series4);
-            this.mainChart.Size = new System.Drawing.Size(1074, 503);
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series5.Legend = "Legend1";
+            series5.MarkerSize = 10;
+            series5.Name = "base function";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            series6.Legend = "Legend1";
+            series6.Name = "base+noise";
+            series6.YValuesPerPoint = 2;
+            series7.BorderWidth = 2;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series7.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series7.Legend = "Legend1";
+            series7.Name = "linear empirical";
+            series8.BorderWidth = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series8.Color = System.Drawing.Color.Red;
+            series8.Legend = "Legend1";
+            series8.Name = "quadratic empirical";
+            this.mainChart.Series.Add(series5);
+            this.mainChart.Series.Add(series6);
+            this.mainChart.Series.Add(series7);
+            this.mainChart.Series.Add(series8);
+            this.mainChart.Size = new System.Drawing.Size(1855, 888);
             this.mainChart.TabIndex = 0;
             this.mainChart.Text = "MainChart";
             // 
@@ -121,7 +121,7 @@
             this.configurationBox.Controls.Add(this.lTextBox);
             this.configurationBox.Controls.Add(this.FunctionBox);
             this.configurationBox.Controls.Add(this.lLable);
-            this.configurationBox.Location = new System.Drawing.Point(900, 139);
+            this.configurationBox.Location = new System.Drawing.Point(1658, 142);
             this.configurationBox.Name = "configurationBox";
             this.configurationBox.Size = new System.Drawing.Size(133, 120);
             this.configurationBox.TabIndex = 1;
@@ -192,7 +192,7 @@
             this.resultBox.Controls.Add(this.resTBa2);
             this.resultBox.Controls.Add(this.resTBa1);
             this.resultBox.Controls.Add(this.resTBa0);
-            this.resultBox.Location = new System.Drawing.Point(900, 265);
+            this.resultBox.Location = new System.Drawing.Point(1658, 268);
             this.resultBox.Name = "resultBox";
             this.resultBox.Size = new System.Drawing.Size(133, 160);
             this.resultBox.TabIndex = 2;
@@ -220,7 +220,7 @@
             this.a2Lable.Name = "a2Lable";
             this.a2Lable.Size = new System.Drawing.Size(31, 13);
             this.a2Lable.TabIndex = 3;
-            this.a2Lable.Text = "a3 = ";
+            this.a2Lable.Text = "a2 = ";
             // 
             // comboboxMethods
             // 
@@ -298,7 +298,7 @@
             this.updateButton.FlatAppearance.BorderSize = 0;
             this.updateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateButton.Location = new System.Drawing.Point(922, 431);
+            this.updateButton.Location = new System.Drawing.Point(1680, 434);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(84, 41);
             this.updateButton.TabIndex = 3;
@@ -314,7 +314,7 @@
             this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btClose.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btClose.ForeColor = System.Drawing.Color.White;
-            this.btClose.Location = new System.Drawing.Point(1043, 3);
+            this.btClose.Location = new System.Drawing.Point(1839, 3);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(25, 27);
             this.btClose.TabIndex = 4;
@@ -329,7 +329,7 @@
             this.panel1.Controls.Add(this.btClose);
             this.panel1.Location = new System.Drawing.Point(-2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1074, 33);
+            this.panel1.Size = new System.Drawing.Size(1867, 33);
             this.panel1.TabIndex = 5;
             // 
             // ProgramName
@@ -348,7 +348,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1071, 564);
+            this.ClientSize = new System.Drawing.Size(1865, 948);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.resultBox);
             this.Controls.Add(this.configurationBox);
