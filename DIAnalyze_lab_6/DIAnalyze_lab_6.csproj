@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aglomera, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FW-Aglomera.1.1.1\lib\netstandard2.0\Aglomera.dll</HintPath>
+    </Reference>
     <Reference Include="ScottPlot, Version=4.1.25.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
       <HintPath>..\packages\ScottPlot.4.1.25\lib\net461\ScottPlot.dll</HintPath>
     </Reference>
