@@ -41,9 +41,7 @@ namespace DIAnalyze_lab_8
             {
                 var lastSmoothed = smothed.Last();
                 var lastTrend = trends.Last();
-
                 var current = alpha * data[i] + (1 - alpha) * (lastSmoothed - lastTrend);
-
                 var currentTrend = beta * (current - lastSmoothed) + (1 - beta) * lastTrend;
 
                 smothed.Add(current);

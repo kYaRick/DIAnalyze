@@ -254,7 +254,6 @@ namespace DIAnalyze_lab_6
                 formsPlot1.Plot.AddScatterPoints(_new_centres.Select(x => x.X).ToArray(), _new_centres.Select(y => y.Y).ToArray(), Color.Green, markerSize: 7, markerShape: ScottPlot.MarkerShape.filledSquare, label: "test");
             }
         }
-
         private void _centresMode_CheckedChanged(object sender, EventArgs e)
         {
             _mode = Mode.PredefinedPoints;
@@ -267,7 +266,6 @@ namespace DIAnalyze_lab_6
         {
             _mode = Mode.FromFirstCluster;
         }
-
         private void _ckeckShowInputCenters_CheckStateChanged(object sender, EventArgs e)
         {
             _flagShowInputCenters = ckeckShowInputCenters.Checked;
