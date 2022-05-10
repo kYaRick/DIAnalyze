@@ -29,7 +29,6 @@ namespace Lab1 {
 
 			lossChart.ChartAreas[0].AxisX.Minimum = 0;
 			lossChart.ChartAreas[0].AxisY.Minimum = -0.1;
-
 		}
 
 		private void button1_Click(object sender, EventArgs ea) {
@@ -51,21 +50,22 @@ namespace Lab1 {
 					return;
 			}
 
-			// Зчитати значення навчаючих пар, к-сть епох і швидкість навчання
-			var tempX = xList.Text.Replace("; ", ";").Split('\n');
-			x = new double[tempX.Length][];
+            // Зчитати значення навчаючих пар, к-сть епох і швидкість навчання.
+            var tempX = xList.Text.Replace("; ", ";").Split('\n');
+            x = new double[tempX.Length][];
 
-			for (int i = 0; i < tempX.Length; i++) {
-				var tempX_elem = tempX[i].Split(';');
-				x[i] = new double[] {
-					double.Parse(tempX_elem[0].Replace('.', ',')),
-					double.Parse(tempX_elem[1].Replace('.', ','))
-				};
-			}
+            for (int i = 0; i < tempX.Length; i++)
+            {
+                var tempX_elem = tempX[i].Split(';');
+                x[i] = new double[] {
+                    double.Parse(tempX_elem[0].Replace('.', ',')),
+                    double.Parse(tempX_elem[1].Replace('.', ','))
+                };
+            }
 
-			t = tList.Text.Split('\n').Select(t_elem => double.Parse(t_elem.Replace('.', ','))).ToArray();
+            t = tList.Text.Split('\n').Select(t_elem => double.Parse(t_elem.Replace('.', ','))).ToArray();
 
-			epochs = int.Parse(epochsTextBox.Text);
+            epochs = int.Parse(epochsTextBox.Text);
 			learnRate = double.Parse(learnRateTextBox.Text.Replace('.', ','));
 
 			// Згенерувати випадкові ваги

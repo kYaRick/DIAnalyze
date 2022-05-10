@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -14,6 +9,17 @@ namespace WindowsFormsApp1
     {
         static public double[,] centers = new double[2, 2] {{ -2, -3 }, { 0, 0 }};
         static public double[] weight = new double[3] { 1, 1, 1 };
+
+        bool btnFlag = false;
+        bool lineFlag = false;
+        int MaxX = 0;
+        int MaxY = 0;
+        int N;
+        double sigma;
+        double[,] klastersii;
+        double[,] klasters2;
+        double[,] klasters2_01;
+        double[,] features;
 
         public Form1()
         {
@@ -27,14 +33,7 @@ namespace WindowsFormsApp1
             chart1.Series[2].Points.Clear();
             chart1.Series[3].Points.Clear();
             chart1.Series[4].Points.Clear();
-
-            //chart1.ChartAreas[0].AxisY.Maximum = 5;
-            ////chart1.ChartAreas[0].AxisY.Maximum = -5;
-            //chart1.ChartAreas[0].AxisX.Maximum = 5;
-            //chart1.ChartAreas[0].AxisX.Maximum = -3;
         }
-
-
 
         double sigmoid(double h, double alpha)
         {
@@ -68,22 +67,21 @@ namespace WindowsFormsApp1
             double err_max = double.MinValue;
             int paus = Convert.ToInt32(textBox7.Text);
             int iter = 0;
-            
+
             int max_iter = Convert.ToInt32(textBox4.Text);
 
             Random rand = new Random();
 
 
+            weight[0] = (rand.NextDouble() * 2 - 1) * 4;
             weight[1] = (rand.NextDouble() * 2 - 1) * 4;
             weight[2] = (rand.NextDouble() * 2 - 1) * 4;
-            weight[0] = (rand.NextDouble() * 2 - 1) * 4;
 
             do
             {
 
-                chart1.Series[4].Points.AddXY(-3, -(weight[1] * (-3) + weight[0]) / weight[2]);
-                chart1.Series[4].Points.AddXY(5, -(weight[1] * (5) + weight[0]) / weight[2]);
-
+                chart1.Series[4].Points.AddXY(-3, (-weight[1] * (-3) + weight[0]) / weight[2]);
+                chart1.Series[4].Points.AddXY(5, (-weight[1] * (5) + weight[0]) / weight[2]);
 
                 err_max = double.MinValue;
                 for (int i = 0; i < N * 2; i++)
@@ -107,8 +105,7 @@ namespace WindowsFormsApp1
                         weight[j] = weight[j] - alpha * eta * J_t * features[i, j];
 
                 }
-                System.Threading.Thread.Sleep(paus);
-                paus /= (int)2;
+                Thread.Sleep(paus);
                 chart1.Update(); // апдейтим
 
                 chart1.Series[4].Points.Clear();
@@ -116,23 +113,25 @@ namespace WindowsFormsApp1
 
                 if (iter == max_iter-1)
                     MessageBox.Show("Max iter!");
+
             } while (J < err_max && iter < max_iter);
 
 
-            chart1.Series[4].Points.AddXY(-3, -(weight[1] * (-3) + weight[0]) / weight[2]);
-            chart1.Series[4].Points.AddXY(5, -(weight[1] * (5) + weight[0]) / weight[2]);
+            chart1.Series[4].Points.AddXY(-3, (-weight[1] * (-3) + weight[0]) / weight[2]);
+            chart1.Series[4].Points.AddXY(5, (-weight[1] * (5) + weight[0]) / weight[2]);
+            chart1.Series[4].Enabled = false;
         }
 
         private void chart1_Click(object sender, EventArgs e)
         {
-                int N = Convert.ToInt32(textBox2.Text);
-            double sigma = Convert.ToDouble(textBox1.Text);
 
+            N = Convert.ToInt32(textBox2.Text);
+            sigma = Convert.ToDouble(textBox1.Text);
+            klastersii = Klasters.Initialize_Klasters(N, sigma, centers, 2);
+            klasters2 = new double[N * 2, 2];
+            klasters2_01 = new double[N * 2, 2];
+            features = new double[N * 2, 3];
 
-            double[,] klastersii = Klasters.Initialize_Klasters(N, sigma, centers, 2);
-            double[,] klasters2 = new double[N * 2, 2];
-            double[,] klasters2_01 = new double[N * 2, 2];
-            double[,] features = new double[N * 2, 3];
             int check = 0;
 
             for (int i = 0; i < N; i++)
@@ -166,8 +165,12 @@ namespace WindowsFormsApp1
                 features[i, 0] = 1;
                 features[i, 1] = klasters2[i, 0];
                 features[i, 2] = klasters2[i, 1];
-            }
 
+                int temp = Math.Abs((int)features[i, 1]);
+                MaxX = temp > MaxX ? temp : MaxX;
+                temp = Math.Abs((int)features[i, 2]);
+                MaxY = temp > MaxY ? temp : MaxY;
+            }
 
             BeatyChart();
 
@@ -177,10 +180,7 @@ namespace WindowsFormsApp1
                 chart1.Series[1].Points.AddXY(klastersii[i + N, 0], klastersii[i + N, 1]);
             }
 
-            if (checkBox2.Checked) Learning(N, features, klasters2_01);
-
-
-
+            Learning(N, features, klasters2_01);
             chart1.Series[4].Points.Clear();
 
             int A = 0;
@@ -202,15 +202,16 @@ namespace WindowsFormsApp1
                     chart1.Series[2].Points.AddXY(features[i, 1], features[i, 2]);
                     B++;
                 }
-                
             }
 
-            label8.Text = Convert.ToString("T(A) = ") + Convert.ToString(A / Convert.ToDouble(textBox2.Text) / 2 * 100) + "%" ;
-            label9.Text = Convert.ToString("T(B) = ") + Convert.ToString(B / Convert.ToDouble(textBox2.Text) / 2 * 100) + "%";
-            chart1.Series[4].Points.AddXY(-3, -(weight[1] * (-3) + weight[0]) / weight[2]);
-            chart1.Series[4].Points.AddXY(5, -(weight[1] * (5) + weight[0]) / weight[2]);
+            chart1.Series[3].Enabled = false;
+            chart1.Series[2].Enabled = false;
 
-            checkBox2.Checked = false;
+            label8.Text = Convert.ToString("T(A) = ") + Convert.ToString(A / Convert.ToDouble(textBox2.Text) / 2 * 100) + "%";
+            label9.Text = Convert.ToString("T(B) = ") + Convert.ToString(B / Convert.ToDouble(textBox2.Text) / 2 * 100) + "%";
+
+            chart1.Series[4].Points.AddXY(-3, (-weight[0] * (-3) - weight[1]) / weight[2]);
+            chart1.Series[4].Points.AddXY(4, (-weight[0] * (4) - weight[1]) / weight[2]);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -228,6 +229,32 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             chart1_Click(this, null);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (btnFlag)
+            {
+                chart1.Series[4].Enabled = false;
+                btnFlag = false;
+            }
+            else
+            {
+                chart1.Series[4].Enabled = true;
+                btnFlag = true;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                chart1.Series[2].Enabled = chart1.Series[3].Enabled = btnFlag = true;
+            }
+            else
+            {
+                chart1.Series[2].Enabled = chart1.Series[3].Enabled = btnFlag = false;
+            }
         }
     }
 }
