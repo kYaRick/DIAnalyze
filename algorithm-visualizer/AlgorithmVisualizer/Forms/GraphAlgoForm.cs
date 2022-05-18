@@ -177,18 +177,30 @@ namespace AlgorithmVisualizer.Forms
 		}
 		private void RunAlgo(int from, int to)
 		{
+			bool isIgnoreDelay = cbMaxSpeed.Checked;
+			bool isToUp = cbIsToUp.Checked;
+
 			// TODO: refactor this uisng reflection?
 			switch (selectedAlgoIdx)
 			{
-				case 0:
-					var test = new BFS(graph, from, to);
-					test.TryToGetWatch(out double time);
-					MessageBox.Show($"Time: {time} miliseconds");
-					test.Solve();
-					break;
+                case 0:
+                    {
+                        var bfsObj = new BFS(graph, from, to, isToUp, isIgnoreDelay);
+						bfsObj.Solve(out double time);
+
+                        if (bfsObj.IsIgnoreDelay)
+                            MessageBox.Show($"Time: {time} miliseconds");
+
+                    } break;
 				case 1:
-					new DFS(graph, from, to).Solve();
-					break;
+                    {
+                        var djsObj = new DFS(graph, from, to, isToUp, isIgnoreDelay);
+						djsObj.Solve(from, out double time);
+
+						if (djsObj.IsIgnoreDelay)
+                            MessageBox.Show($"Time: {time} miliseconds");
+                    }
+                    break;
 				case 2:
 					new ConnectedComponentsDFS(graph).Solve();
 					break;
@@ -540,7 +552,21 @@ namespace AlgorithmVisualizer.Forms
 			Focus();
 		}
 
-		private DateTime lastFPSCheckTime = DateTime.Now;
+        private void cbMaxSpeed_CheckStateChanged(object sender, EventArgs e)
+        {
+			speedBar.Enabled = !cbMaxSpeed.Checked;
+			switch (cbMaxSpeed.Checked)
+            {
+				case true:
+					speedBar.Value = speedBar.Maximum;
+					break;
+				case false:
+					speedBar.Value = (speedBar.Maximum - speedBar.Minimum)*3/4;
+					break;
+			}
+        }
+
+        private DateTime lastFPSCheckTime = DateTime.Now;
 		private int frameCount = 0;
 		private void FPSTimer_Tick(object sender, EventArgs e)
 		{

@@ -36,6 +36,7 @@ namespace AlgorithmVisualizer.Forms
             this.removeVertexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleVertexPinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControls = new System.Windows.Forms.Panel();
+            this.cbMaxSpeed = new System.Windows.Forms.CheckBox();
             this.btnPreferences = new System.Windows.Forms.Button();
             this.btnClearState = new System.Windows.Forms.Button();
             this.btnDetails = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@ namespace AlgorithmVisualizer.Forms
             this.toggleCenterPullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canvas = new System.Windows.Forms.PictureBox();
             this.FPSTimer = new System.Windows.Forms.Timer(this.components);
+            this.cbIsToUp = new System.Windows.Forms.CheckBox();
             this.vertexContextStrip.SuspendLayout();
             this.panelControls.SuspendLayout();
             this.canvasContextStrip.SuspendLayout();
@@ -102,6 +104,8 @@ namespace AlgorithmVisualizer.Forms
             // panelControls
             // 
             this.panelControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.panelControls.Controls.Add(this.cbIsToUp);
+            this.panelControls.Controls.Add(this.cbMaxSpeed);
             this.panelControls.Controls.Add(this.btnPreferences);
             this.panelControls.Controls.Add(this.btnClearState);
             this.panelControls.Controls.Add(this.btnDetails);
@@ -118,6 +122,17 @@ namespace AlgorithmVisualizer.Forms
             this.panelControls.Name = "panelControls";
             this.panelControls.Size = new System.Drawing.Size(1008, 57);
             this.panelControls.TabIndex = 17;
+            // 
+            // cbMaxSpeed
+            // 
+            this.cbMaxSpeed.AutoSize = true;
+            this.cbMaxSpeed.Location = new System.Drawing.Point(936, 12);
+            this.cbMaxSpeed.Name = "cbMaxSpeed";
+            this.cbMaxSpeed.Size = new System.Drawing.Size(84, 17);
+            this.cbMaxSpeed.TabIndex = 19;
+            this.cbMaxSpeed.Text = "Ignore delay";
+            this.cbMaxSpeed.UseVisualStyleBackColor = true;
+            this.cbMaxSpeed.CheckStateChanged += new System.EventHandler(this.cbMaxSpeed_CheckStateChanged);
             // 
             // btnPreferences
             // 
@@ -250,7 +265,7 @@ namespace AlgorithmVisualizer.Forms
             this.speedBar.Name = "speedBar";
             this.speedBar.Size = new System.Drawing.Size(113, 23);
             this.speedBar.TabIndex = 11;
-            this.speedBar.Value = 50;
+            this.speedBar.Value = 80;
             this.speedBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.speedBar_Scroll);
             // 
             // btnPauseResume
@@ -335,6 +350,16 @@ namespace AlgorithmVisualizer.Forms
             this.FPSTimer.Interval = 500;
             this.FPSTimer.Tick += new System.EventHandler(this.FPSTimer_Tick);
             // 
+            // cbIsToUp
+            // 
+            this.cbIsToUp.AutoSize = true;
+            this.cbIsToUp.Location = new System.Drawing.Point(936, 34);
+            this.cbIsToUp.Name = "cbIsToUp";
+            this.cbIsToUp.Size = new System.Drawing.Size(61, 17);
+            this.cbIsToUp.TabIndex = 20;
+            this.cbIsToUp.Text = "Is to up";
+            this.cbIsToUp.UseVisualStyleBackColor = true;
+            // 
             // GraphAlgoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,5 +410,7 @@ namespace AlgorithmVisualizer.Forms
 		private System.Windows.Forms.ToolStripMenuItem toggleCenterPullToolStripMenuItem;
 		private System.Windows.Forms.Button btnPreferences;
 		private System.Windows.Forms.Timer FPSTimer;
-	}
+        private System.Windows.Forms.CheckBox cbMaxSpeed;
+        private System.Windows.Forms.CheckBox cbIsToUp;
+    }
 }

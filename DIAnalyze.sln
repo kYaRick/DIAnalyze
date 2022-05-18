@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kkYa_NNH_lab_2", "kkYa_NNH_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmVisualizer", "algorithm-visualizer\AlgorithmVisualizer\AlgorithmVisualizer.csproj", "{3290566E-4DAB-42DF-A3E3-976ED207BE82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wave Algorithm", "algorithm-visualizer\Wave Algorithm\Wave Algorithm\Wave Algorithm.csproj", "{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,7 +100,6 @@ Global
 		{A963B347-F2A4-4015-8005-D7228344B4ED}.Release|x86.ActiveCfg = Release|Any CPU
 		{A963B347-F2A4-4015-8005-D7228344B4ED}.Release|x86.Build.0 = Release|Any CPU
 		{A24E1147-FFEB-4E3C-AA83-6FB29B8079B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A24E1147-FFEB-4E3C-AA83-6FB29B8079B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A24E1147-FFEB-4E3C-AA83-6FB29B8079B4}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{A24E1147-FFEB-4E3C-AA83-6FB29B8079B4}.Debug|x64.Build.0 = Debug|Any CPU
 		{A24E1147-FFEB-4E3C-AA83-6FB29B8079B4}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -132,6 +133,18 @@ Global
 		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Release|x64.Build.0 = Release|Any CPU
 		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Release|x86.ActiveCfg = Release|Any CPU
 		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Release|x86.Build.0 = Release|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Debug|x64.Build.0 = Debug|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Debug|x86.Build.0 = Debug|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Release|x64.ActiveCfg = Release|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Release|x64.Build.0 = Release|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Release|x86.ActiveCfg = Release|Any CPU
+		{BBC1B03C-E3D5-4365-883C-8BD7C8E450CE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

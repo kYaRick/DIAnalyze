@@ -28,7 +28,8 @@ namespace AlgorithmVisualizer.Forms
 		{
 			bgw = new BackgroundWorker();
 			bgw.DoWork += new DoWorkEventHandler(bgw_Visualize);
-			bgw.RunWorkerAsync();
+            bgw.RunWorkerAsync();
+			bgw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(unlockBtnSolve);
 		}
 		private void bgw_Visualize(object sender, DoWorkEventArgs e)
 		{
@@ -38,18 +39,28 @@ namespace AlgorithmVisualizer.Forms
 			Control[] controls = new Control[] { btnPauseResume, btnDrawSolveClearMaze };
 			parentForm.inGraphAlgoViz = true;
 			parentForm.ToggleMainMenuBtns();
-			foreach (Control control in controls) SetControlEnabled(control, control == btnPauseResume);
+			
+			foreach (Control control in controls) 
+				SetControlEnabled(control, control == btnPauseResume);
 
 			// generate/solve maze
-			if (!mazeVisualizer.IsDrawn) mazeVisualizer.GenerateMaze();
-			else mazeVisualizer.Solve();
-
+			if (!mazeVisualizer.IsDrawn)
+            {
+				mazeVisualizer.GenerateMaze();
+			}
+			
 			// Disable Pause/Resume and enable btnDrawSolveClearMaze after visualizing
-			foreach (Control control in controls) SetControlEnabled(control, control != btnPauseResume);
+			foreach (Control control in controls) 
+				SetControlEnabled(control, control != btnPauseResume);
+            
 			parentForm.ToggleMainMenuBtns();
-			parentForm.inGraphAlgoViz = false;
-			if (worker.CancellationPending) e.Cancel = true;
+            parentForm.inGraphAlgoViz = false;
+            
+			if (worker.CancellationPending) 
+				e.Cancel = true;
 		}
+
+
 
 		// Thread safe method to update a control's enabled state
 		private delegate void SetControlEnabledCallback(Control control, bool enabled);
@@ -73,21 +84,23 @@ namespace AlgorithmVisualizer.Forms
 				// Init maze visualizer and generate maze
 				g = panelMain.CreateGraphics();
 				GetMazeSize(out int height, out int width);
-				mazeVisualizer = new MazeSolver(g, height, width, CELL_WIDTH, PATH_WIDTH, true);
-				UpdateDelayFactor();
-				btnDrawSolveClearMaze.Text = "Find SP";
-				RunBGW();
-			}
-			else if (mazeVisualizer.IsDrawn && !mazeVisualizer.IsSolved)
-			{
-				// Find SP in maze
-				btnDrawSolveClearMaze.Text = "Clear";
-				RunBGW();
-			}
+                mazeVisualizer = new MazeSolver(g, height, width, CELL_WIDTH, PATH_WIDTH, true);
+                UpdateDelayFactor();
+                btnDrawSolveClearMaze.Text = "Clear";
+                RunBGW();
+            }
+			//else if (mazeVisualizer.IsDrawn && !mazeVisualizer.IsSolved)
+			//{
+			//	// Find SP in maze
+			//	btnDrawSolveClearMaze.Text = "Clear";
+			//	btSolve.Enabled = false;
+			//	RunBGW();
+			//}
 			else // mazeVisualizer.IsDrawn == mazeVisualizer.IsSolved == true
 			{
 				// Clear the maze (panel), cycles to inital state (drawing new maze)
 				mazeVisualizer = null;
+				btSolve.Enabled = false;
 				g.Clear(Colors.Undraw);
 				btnDrawSolveClearMaze.Text = "Create Maze";
 			}
@@ -111,14 +124,19 @@ namespace AlgorithmVisualizer.Forms
 			heightTxtBox.Text = height.ToString();
 			widthTxtBox.Text = width.ToString();
 		}
-
 		private void UpdateDelayFactor() => mazeVisualizer.DelayFactor = speedBar.Value;
-
 		private void speedBar_Scroll(object sender, ScrollEventArgs e)
 		{
 			if (mazeVisualizer != null) UpdateDelayFactor();
 		}
-		private void btnPauseResume_Click(object sender, EventArgs e)
+
+        private void btSolve_Click(object sender, EventArgs e)
+        {
+			if (mazeVisualizer != null )
+			mazeVisualizer.Solve();
+		}
+
+        private void btnPauseResume_Click(object sender, EventArgs e)
 		{
 			// Note that this button is only enabled during a visualization!
 
@@ -135,5 +153,6 @@ namespace AlgorithmVisualizer.Forms
 				mazeVisualizer.Pause();
 			}
 		}
+		private void unlockBtnSolve(object sender, RunWorkerCompletedEventArgs e) => btSolve.Enabled = mazeVisualizer.IsDrawn;
 	}
 }

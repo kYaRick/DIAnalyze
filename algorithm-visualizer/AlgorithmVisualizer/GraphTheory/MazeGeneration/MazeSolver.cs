@@ -16,14 +16,22 @@ namespace AlgorithmVisualizer.GraphTheory.MazeGeneration
 
 		private void PickRndEndPos()
 		{
-			// Pick random ending point for the BFS, maze sure its not -1 or the starting point
-			//while(endRow == -1 || endRow == startRow)
-			//	endRow = rnd.Next(MAZE_HEIGHT);
-			do endRow = rnd.Next(MazeHeight); while (endRow == startRow);
-			//while (endCol == -1 || endCol == startCol)
-			//	endCol = rnd.Next(MAZE_WIDTH);
-			do endCol = rnd.Next(MazeWidth); while (endCol == startCol);
-		}
+            // Pick random ending point for the BFS, maze sure its not -1 or the starting point
+
+            //while (endRow == -1 || endRow == startRow)
+            //    endRow = rnd.Next(MazeHeight);
+
+            do
+                endRow = rnd.Next(MazeHeight);
+            while (endRow == startRow);
+
+            //while (endCol == -1 || endCol == startCol)
+            //    endCol = rnd.Next(MazeWidth);
+
+            do
+                endCol = rnd.Next(MazeWidth);
+            while (endCol == startCol);
+        }
 		public void Solve()
 		{
 			PickRndEndPos();
@@ -57,6 +65,7 @@ namespace AlgorithmVisualizer.GraphTheory.MazeGeneration
 			Sleep(Delay.Huge);
 			FindPath(startingCell, endingCell, visited, prevDict);
 		}
+
 		private void BFS(Cell startingCell, Cell endingCell, Queue<Cell> q,
 			HashSet<Cell> visited, Dictionary<Cell, Cell> prevDict, Dictionary<Cell, int> distDict)
 		{
@@ -69,6 +78,7 @@ namespace AlgorithmVisualizer.GraphTheory.MazeGeneration
 				// If not the starting cell, visualize in blue
 				if (curCell != startingCell) DrawCellWithConnection(curCell, Brushes.Blue);
 				// If curCell is the endingCell, visualize the cell in red and finish BFS
+				
 				if (curCell == endingCell)
 				{
 					// Need to draw in red again becuase ending cell is currentley visualized in blue
@@ -95,6 +105,7 @@ namespace AlgorithmVisualizer.GraphTheory.MazeGeneration
 					}
 				}
 				Sleep(Delay.Tiny);
+
 			}
 		}
 		private void FindPath(Cell startingCell, Cell endingCell, HashSet<Cell> visited,

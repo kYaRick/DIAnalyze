@@ -2,6 +2,8 @@
 using System;
 using System.Windows.Forms;
 
+using Wave_Algorithm;
+
 namespace AlgorithmVisualizer.Forms
 {
 	public partial class MainUIForm : Form
@@ -17,7 +19,7 @@ namespace AlgorithmVisualizer.Forms
 		{
 			InitializeComponent();
 			// Open graph algo form as child
-			OpenChildForm(new GraphAlgoForm(this));
+			btnWaveAlgos_Click(this, null);
 			// Bound panelLog size between 2/10 and 2 of its initial size
 			logMinHeight = (int)(panelLog.Height * 0.2f);
 			logMaxHeight = (int)(panelLog.Height * 2f);
@@ -40,6 +42,7 @@ namespace AlgorithmVisualizer.Forms
 			panelLog.CreateGraphics().Clear(Colors.UndrawLog); // if case there are left overs in logging panel
 		}
 		// Open child form
+		private void btnWaveAlgos_Click(object sender, EventArgs e) => OpenChildForm(new WaveAlgorithmForm(this));
 		private void btnArrayAlgos_Click(object sender, EventArgs e) => OpenChildForm(new ArrayAlgoForm(panelLog));
 		private void btnMazeGenerator_Click(object sender, EventArgs e) => OpenChildForm(new MazeGenForm(this));
 		private void btnGraphAlgos_Click(object sender, EventArgs e) => OpenChildForm(new GraphAlgoForm(this));
