@@ -36,6 +36,7 @@ namespace AlgorithmVisualizer.Forms
             this.removeVertexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleVertexPinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControls = new System.Windows.Forms.Panel();
+            this.cbIsToUp = new System.Windows.Forms.CheckBox();
             this.cbMaxSpeed = new System.Windows.Forms.CheckBox();
             this.btnPreferences = new System.Windows.Forms.Button();
             this.btnClearState = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@ namespace AlgorithmVisualizer.Forms
             this.toggleCenterPullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canvas = new System.Windows.Forms.PictureBox();
             this.FPSTimer = new System.Windows.Forms.Timer(this.components);
-            this.cbIsToUp = new System.Windows.Forms.CheckBox();
             this.vertexContextStrip.SuspendLayout();
             this.panelControls.SuspendLayout();
             this.canvasContextStrip.SuspendLayout();
@@ -122,6 +122,16 @@ namespace AlgorithmVisualizer.Forms
             this.panelControls.Name = "panelControls";
             this.panelControls.Size = new System.Drawing.Size(1008, 57);
             this.panelControls.TabIndex = 17;
+            // 
+            // cbIsToUp
+            // 
+            this.cbIsToUp.AutoSize = true;
+            this.cbIsToUp.Location = new System.Drawing.Point(936, 34);
+            this.cbIsToUp.Name = "cbIsToUp";
+            this.cbIsToUp.Size = new System.Drawing.Size(61, 17);
+            this.cbIsToUp.TabIndex = 20;
+            this.cbIsToUp.Text = "Is to up";
+            this.cbIsToUp.UseVisualStyleBackColor = true;
             // 
             // cbMaxSpeed
             // 
@@ -350,16 +360,6 @@ namespace AlgorithmVisualizer.Forms
             this.FPSTimer.Interval = 500;
             this.FPSTimer.Tick += new System.EventHandler(this.FPSTimer_Tick);
             // 
-            // cbIsToUp
-            // 
-            this.cbIsToUp.AutoSize = true;
-            this.cbIsToUp.Location = new System.Drawing.Point(936, 34);
-            this.cbIsToUp.Name = "cbIsToUp";
-            this.cbIsToUp.Size = new System.Drawing.Size(61, 17);
-            this.cbIsToUp.TabIndex = 20;
-            this.cbIsToUp.Text = "Is to up";
-            this.cbIsToUp.UseVisualStyleBackColor = true;
-            // 
             // GraphAlgoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +369,7 @@ namespace AlgorithmVisualizer.Forms
             this.Controls.Add(this.canvas);
             this.Controls.Add(this.panelControls);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "GraphAlgoForm";
             this.Text = "Graph algorithms";

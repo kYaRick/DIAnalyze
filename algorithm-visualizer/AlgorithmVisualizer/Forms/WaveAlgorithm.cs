@@ -12,6 +12,7 @@ namespace Wave_Algorithm
     public partial class WaveAlgorithmForm : Form
     {
         private readonly MainUIForm parentForm;
+        private RichTextBox rtbLog = new RichTextBox();
 
         private enum MarkMode
         {
@@ -26,10 +27,42 @@ namespace Wave_Algorithm
             InitializeComponent();
             parentForm = _parentForm;
             cbMethodsMode.SelectedIndex = 0;
+
+            rtbLog = new RichTextBox()
+            {
+                Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right),
+                Margin = new Padding(20, 10, 20, 10),
+                BackColor = parentForm.PanelLog.BackColor,
+                Font = parentForm.PanelLog.Font,
+                BorderStyle = BorderStyle.None,
+                ForeColor = Color.White,
+                ReadOnly = true,
+                Dock = DockStyle.Fill,
+                Location = new Point(0, 0),
+                Visible = true
+            };
+            parentForm.PanelLog.Controls.Add(rtbLog);
+            
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView1.MultiSelect = false;
+            dataGridView1.GridColor = Color.LightGray;
+            
+            dataGridView1.Click += dataGridClear;
+            dataGridView1.DoubleClick += dataGridClear;
+
+            var buttons = new[] { button1, button2, button4 };
+            foreach (var button in buttons)
+                button.Click += rtbLogClean;
+        }
+
+        private void dataGridClear(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             DialogResult dialogResult = DialogResult.OK;
 
             if (new[] { dataGridView1.RowCount, dataGridView1.ColumnCount }.Any(el => el > 0))
@@ -58,6 +91,10 @@ namespace Wave_Algorithm
             for (int i = 0; i < dataGridView1.RowCount; i++)
                 for (int j = 0; j < dataGridView1.ColumnCount; j++)
                 {
+                    dataGridView1[j, i].Style.SelectionForeColor = Color.Transparent;
+                    dataGridView1[j, i].Style.SelectionBackColor = Color.Transparent;
+                    dataGridView1[j, i].Style.ForeColor = Color.Transparent;
+
                     dataGridView1[j,i].Value = -1;
                     dataGridView1[j,i].Style.BackColor = Color.White;
                 }
@@ -110,6 +147,8 @@ namespace Wave_Algorithm
             }
             else
             {
+                button4_Click(null, e);
+
                 GraphMatrix = new int[dataGridView1.RowCount, dataGridView1.ColumnCount];
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                     for (int j = 0; j < dataGridView1.ColumnCount; j++)
@@ -195,8 +234,10 @@ namespace Wave_Algorithm
                 dataGridView1[Path[i].Y, Path[i].X].Style.BackColor = Color.Yellow;
             for (int i = Path.Count -1; i > -1; i--)
                 pathInfo += "[" + Path[i].X + "; " + Path[i].Y + "] ";
-            MessageBox.Show("Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (Path.Count-1) +"\n\t\t\tTime - "+sw.Elapsed.Milliseconds.ToString() + " ms",
-                "Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (Path.Count-1) +"\n\t\t\tTime - "+sw.Elapsed.Milliseconds.ToString() + " ms",
+            //    "Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            rtbLog.Text += "Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (Path.Count - 1) + "\n\t\t\tTime - " + sw.Elapsed.Milliseconds.ToString() + " ms\n";
         }
 
         private void WaveAlgorithmBidir(int[,] matrix, MarkMode markMode, int miliseconds)
@@ -290,8 +331,10 @@ namespace Wave_Algorithm
                 dataGridView1[Path[i].Y, Path[i].X].Style.BackColor = Color.Yellow;
             for (int i = Path.Count - 1; i > -1; i--)
                 pathInfo += "[" + Path[i].X + "; " + Path[i].Y + "] ";
-            MessageBox.Show("Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (f ? (Path.Count - 2) : (Path.Count - 1)) + "\n\t\t\tTime - " + sw.Elapsed.Milliseconds.ToString() + " ms",
-                "Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (f ? (Path.Count - 2) : (Path.Count - 1)) + "\n\t\t\tTime - " + sw.Elapsed.Milliseconds.ToString() + " ms",
+            //    "Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            rtbLog.Text += "Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (f ? (Path.Count - 2) : (Path.Count - 1)) + "\n\t\t\tTime - " + sw.Elapsed.Milliseconds.ToString() + " ms\n";
         }
 
         private Point GetNextNode(int[,] workMatrix, int i, int j, MarkMode markMode)
@@ -1564,6 +1607,7 @@ namespace Wave_Algorithm
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (GraphMatrix != null)
             for (int i = 0; i < dataGridView1.RowCount; i++)
                 for (int j = 0; j < dataGridView1.ColumnCount; j++)
                 {
@@ -1820,5 +1864,7 @@ namespace Wave_Algorithm
             }
             return founded;
         }
+
+        private void rtbLogClean(object sender, EventArgs e) { rtbLog.Text = ""; }
     }
 }

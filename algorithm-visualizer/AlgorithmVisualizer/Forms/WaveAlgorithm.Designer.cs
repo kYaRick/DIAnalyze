@@ -42,16 +42,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbMethodsMode = new System.Windows.Forms.ComboBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbMethodsMode = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -236,6 +236,20 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Methods";
             // 
+            // cbMethodsMode
+            // 
+            this.cbMethodsMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbMethodsMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbMethodsMode.FormattingEnabled = true;
+            this.cbMethodsMode.ItemHeight = 13;
+            this.cbMethodsMode.Items.AddRange(new object[] {
+            "onewire",
+            "bidirection"});
+            this.cbMethodsMode.Location = new System.Drawing.Point(9, 20);
+            this.cbMethodsMode.Name = "cbMethodsMode";
+            this.cbMethodsMode.Size = new System.Drawing.Size(177, 21);
+            this.cbMethodsMode.TabIndex = 3;
+            // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
@@ -284,6 +298,15 @@
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(99, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 13);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "ms";
             // 
             // label7
             // 
@@ -336,29 +359,6 @@
             this.button3.Text = "Solve";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(99, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 13);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "ms";
-            // 
-            // cbMethodsMode
-            // 
-            this.cbMethodsMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbMethodsMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbMethodsMode.FormattingEnabled = true;
-            this.cbMethodsMode.ItemHeight = 13;
-            this.cbMethodsMode.Items.AddRange(new object[] {
-            "onewire",
-            "bidirection"});
-            this.cbMethodsMode.Location = new System.Drawing.Point(9, 20);
-            this.cbMethodsMode.Name = "cbMethodsMode";
-            this.cbMethodsMode.Size = new System.Drawing.Size(177, 21);
-            this.cbMethodsMode.TabIndex = 3;
             // 
             // WaveAlgorithmForm
             // 
