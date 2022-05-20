@@ -62,7 +62,6 @@ namespace Wave_Algorithm
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             DialogResult dialogResult = DialogResult.OK;
 
             if (new[] { dataGridView1.RowCount, dataGridView1.ColumnCount }.Any(el => el > 0))
@@ -93,7 +92,7 @@ namespace Wave_Algorithm
                 {
                     dataGridView1[j, i].Style.SelectionForeColor = Color.Transparent;
                     dataGridView1[j, i].Style.SelectionBackColor = Color.Transparent;
-                    dataGridView1[j, i].Style.ForeColor = Color.Transparent;
+                    dataGridView1[j, i].Style.ForeColor = chbShowWeights.Checked ? Color.Black : Color.Transparent;
 
                     dataGridView1[j,i].Value = -1;
                     dataGridView1[j,i].Style.BackColor = Color.White;
@@ -147,8 +146,6 @@ namespace Wave_Algorithm
             }
             else
             {
-                button4_Click(null, e);
-
                 GraphMatrix = new int[dataGridView1.RowCount, dataGridView1.ColumnCount];
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                     for (int j = 0; j < dataGridView1.ColumnCount; j++)
@@ -1292,6 +1289,7 @@ namespace Wave_Algorithm
                                         newFront.Add(new Point(i + 1, j + 1));
                                 }
                             }
+                           
                             if (j > 0 & j < workMatrix.GetLength(1) - 1)
                             {
                                 if (workMatrix[i + 1, j - 1] == -1)
@@ -1866,5 +1864,14 @@ namespace Wave_Algorithm
         }
 
         private void rtbLogClean(object sender, EventArgs e) { rtbLog.Text = ""; }
+
+        private void chbShowWeights_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                {
+                    dataGridView1[j, i].Style.ForeColor = chbShowWeights.Checked ? Color.Black : Color.Transparent;
+                }
+        }
     }
 }
