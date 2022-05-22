@@ -53,7 +53,6 @@ namespace WindowsFormsApp1
         {
             int N = klasters.Length / 2;
             int[] perm = Enumerable.Range(0, N).ToArray(); // 0 1 2 ... (n - 1)
-            
 
             for (int i = N - 1; i >= 1; i--)
             {
