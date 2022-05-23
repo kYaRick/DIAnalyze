@@ -81,6 +81,7 @@ namespace Lab1 {
 			// Запустити навчання нейромережі
 			for (int ep = 0; ep < epochs; ep++) {
 				double e = 0;
+				
 				for (int i = 0; i < x.Length; i++) {
 					double s = Summator(x[i], w, b);
 					double outV = ActivationFunction(s, alpha);
@@ -91,6 +92,7 @@ namespace Lab1 {
 						w[j] = CorrectWeight(w[j], learnRate, delta);
 					}
 					b = b - learnRate * Delta(outV, t[i], 1);
+
 				}
 				loss.Add(e);
 			}

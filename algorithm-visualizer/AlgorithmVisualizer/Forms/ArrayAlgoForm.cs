@@ -50,7 +50,7 @@ namespace AlgorithmVisualizer.Forms
 			if (arrayVisualizer == null)
 			{
 				ResetPanel();
-				Thread.Sleep(700);
+				//Thread.Sleep(700);
 			}
 			// Create bgw, assign work and runn in async mode
 			bgw = new BackgroundWorker { WorkerSupportsCancellation = true };

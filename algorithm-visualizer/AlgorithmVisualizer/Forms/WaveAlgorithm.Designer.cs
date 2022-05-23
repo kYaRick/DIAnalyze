@@ -35,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.gbLegend = new System.Windows.Forms.GroupBox();
+            this.cbExsamples = new System.Windows.Forms.ComboBox();
+            this.chbShowWeights = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +54,6 @@
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.chbShowWeights = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -137,6 +138,7 @@
             // gbLegend
             // 
             this.gbLegend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbLegend.Controls.Add(this.cbExsamples);
             this.gbLegend.Controls.Add(this.chbShowWeights);
             this.gbLegend.Controls.Add(this.button2);
             this.gbLegend.Controls.Add(this.label6);
@@ -146,10 +148,37 @@
             this.gbLegend.ForeColor = System.Drawing.Color.White;
             this.gbLegend.Location = new System.Drawing.Point(521, 108);
             this.gbLegend.Name = "gbLegend";
-            this.gbLegend.Size = new System.Drawing.Size(192, 183);
+            this.gbLegend.Size = new System.Drawing.Size(192, 204);
             this.gbLegend.TabIndex = 6;
             this.gbLegend.TabStop = false;
             this.gbLegend.Text = "Legend";
+            // 
+            // cbExsamples
+            // 
+            this.cbExsamples.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbExsamples.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbExsamples.FormattingEnabled = true;
+            this.cbExsamples.ItemHeight = 13;
+            this.cbExsamples.Items.AddRange(new object[] {
+            "onewire",
+            "bidirection"});
+            this.cbExsamples.Location = new System.Drawing.Point(9, 151);
+            this.cbExsamples.Name = "cbExsamples";
+            this.cbExsamples.Size = new System.Drawing.Size(177, 21);
+            this.cbExsamples.TabIndex = 4;
+            this.cbExsamples.SelectedIndexChanged += new System.EventHandler(this.cbExsamples_SelectedIndexChanged);
+            this.cbExsamples.Click += new System.EventHandler(this.cbExsamples_SelectedIndexChanged);
+            // 
+            // chbShowWeights
+            // 
+            this.chbShowWeights.AutoSize = true;
+            this.chbShowWeights.Location = new System.Drawing.Point(9, 181);
+            this.chbShowWeights.Name = "chbShowWeights";
+            this.chbShowWeights.Size = new System.Drawing.Size(92, 17);
+            this.chbShowWeights.TabIndex = 11;
+            this.chbShowWeights.Text = "Show weights";
+            this.chbShowWeights.UseVisualStyleBackColor = true;
+            this.chbShowWeights.CheckedChanged += new System.EventHandler(this.chbShowWeights_CheckedChanged);
             // 
             // button2
             // 
@@ -219,7 +248,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.Size = new System.Drawing.Size(522, 530);
+            this.dataGridView1.Size = new System.Drawing.Size(522, 551);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
@@ -231,7 +260,7 @@
             this.groupBox3.Controls.Add(this.radioButton2);
             this.groupBox3.Controls.Add(this.radioButton1);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(521, 297);
+            this.groupBox3.Location = new System.Drawing.Point(521, 318);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(192, 116);
             this.groupBox3.TabIndex = 9;
@@ -294,7 +323,7 @@
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(521, 419);
+            this.groupBox4.Location = new System.Drawing.Point(521, 440);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(192, 103);
             this.groupBox4.TabIndex = 10;
@@ -363,23 +392,12 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // chbShowWeights
-            // 
-            this.chbShowWeights.AutoSize = true;
-            this.chbShowWeights.Location = new System.Drawing.Point(9, 152);
-            this.chbShowWeights.Name = "chbShowWeights";
-            this.chbShowWeights.Size = new System.Drawing.Size(92, 17);
-            this.chbShowWeights.TabIndex = 11;
-            this.chbShowWeights.Text = "Show weights";
-            this.chbShowWeights.UseVisualStyleBackColor = true;
-            this.chbShowWeights.CheckedChanged += new System.EventHandler(this.chbShowWeights_CheckedChanged);
-            // 
             // WaveAlgorithmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(725, 534);
+            this.ClientSize = new System.Drawing.Size(725, 555);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataGridView1);
@@ -431,6 +449,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbMethodsMode;
         private System.Windows.Forms.CheckBox chbShowWeights;
+        private System.Windows.Forms.ComboBox cbExsamples;
     }
 }
 

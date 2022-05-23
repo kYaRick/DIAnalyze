@@ -208,10 +208,10 @@ namespace Wave_Algorithm
                     MarkUnmarkedCells(WorkMatrix, OldFront[i].X, OldFront[i].Y, NewFront, Step, markMode);
                 Step++;
                 ShowMatrix(WorkMatrix, NewFront, AllFront);
-                dataGridView1.Refresh();
                 //System.Threading.Thread.Sleep(miliseconds);
             }
             while (!NewFront.Contains(FinishPoint) && (NewFront.Count > 0));
+                dataGridView1.Refresh();
             sw.Stop();
             if (NewFront.Count == 0)
             {
@@ -296,10 +296,12 @@ namespace Wave_Algorithm
                     MarkUnmarkedCells(WorkMatrix, OldFront2[i].X, OldFront2[i].Y, NewFront2, NewFront1, Step, markMode, ref MeetPoint);
                 Step++;
                 ShowMatrix(WorkMatrix, NewFront1, NewFront2, AllFront1, AllFront2);
-                dataGridView1.Refresh();
                 //System.Threading.Thread.Sleep(miliseconds);
             }
             while ((NewFront2.Count > 0) && (NewFront1.Count > 0) && (MeetPoint.X == -100500 & MeetPoint.Y == -100500));
+
+            dataGridView1.Refresh();
+
             sw.Stop();
             if (NewFront1.Count == 0 || NewFront2.Count == 0 || MeetPoint.X == -100500 & MeetPoint.Y == -100500)
             {
@@ -1867,11 +1869,32 @@ namespace Wave_Algorithm
 
         private void chbShowWeights_CheckedChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void cbExsamples_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var rnd = new Random();
             for (int i = 0; i < dataGridView1.RowCount; i++)
                 for (int j = 0; j < dataGridView1.ColumnCount; j++)
                 {
-                    dataGridView1[j, i].Style.ForeColor = chbShowWeights.Checked ? Color.Black : Color.Transparent;
+                    var vertex = dataGridView1[j, i];
+                    rnd.NextDouble();
+
+                    if (rnd.NextDouble()>0.5)
+                    {
+                        vertex.Value = -9;
+                        vertex.Style.BackColor = Color.Black;
+                    }   
+                    else
+                    {
+                        vertex.Value = -1;
+                        vertex.Style.BackColor = Color.White;
+                    }
+
                 }
+
+            
         }
     }
 }

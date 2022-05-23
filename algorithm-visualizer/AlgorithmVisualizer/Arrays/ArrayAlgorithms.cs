@@ -342,7 +342,7 @@ namespace AlgorithmVisualizer.Arrays
 				if (idx != -1) Console.WriteLine($"Found value {searchVal} at {idx}");
 				else Console.WriteLine($"The value {searchVal} could not be found");
 				// Clear visuals
-				Sleep(Delay.VeryLong);
+				//Sleep(Delay.VeryLong);
 				DrawValues(0, N - 1);
 			}
 		}
