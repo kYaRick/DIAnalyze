@@ -46,6 +46,8 @@ namespace WindowsFormsApp1
             chart1.Series[2].Points.Clear();
             chart1.Series[3].Points.Clear();
             chart1.Series[4].Points.Clear();
+            chart1.Series[5].Points.Clear();
+            chart1.Series[6].Points.Clear();
         }
 
         double _X(double w1, double w2, double b1) => _XY(pX, w1, w2, b1);
@@ -74,10 +76,10 @@ namespace WindowsFormsApp1
         void _Learning(int N, double[,] features, double[,] klasters2_01)
         {
             double alpha = 1;
-            double eta = 0.7;                                               // Швидкість навчання.
-            double J_t;                                                     // 
-            double S;                                                       // Сума добутків ваг на змінні на і-му кроці.
-            double outt;                                                    // Вихід ф-ції активації (сигмоїди).
+            double eta = 0.7;                                                 // Швидкість навчання.
+            double J_t;                                                          // 
+            double S;                                                            // Сума добутків ваг на змінні на і-му кроці.
+            double outt;                                                        // Вихід ф-ції активації (сигмоїди).
             double err_local = 0;
             double err_max = double.MinValue;
             double J = Convert.ToDouble(tbLearningSpeed.Text);
@@ -142,23 +144,23 @@ namespace WindowsFormsApp1
             if (_Sigmoid(_Hipothesis(hello, weight), 1) > 0.5)
             {
                 chart1.Series[1].Points.AddXY(x, y);
-                B++;
+                //B++;
             }
             else
             {
                 chart1.Series[0].Points.AddXY(x, y);
-                A++;
+                //A++;
             }
 
-            double num = Math.Round(Convert.ToDouble((A + B) / 2));
+            //double num = Math.Round(Convert.ToDouble((A + B) / 2));
 
-            double tAbs = num - Math.Abs(num - A);
-            double tResult = Math.Round(tAbs / num * 100, 2);
-            tAResult.Text = Convert.ToString($"T(A) = {tResult}%");
+            //double tAbs = num - Math.Abs(num - A);
+            //double tResult = Math.Round(tAbs / num * 100, 2);
+            //tAResult.Text = Convert.ToString($"T(A) = {tResult}%");
 
-            tAbs = num - Math.Abs(num - B);
-            tResult = Math.Round(tAbs / num * 100, 2);
-            tBResult.Text = Convert.ToString($"T(B) = {tResult}%");
+            //tAbs = num - Math.Abs(num - B);
+            //tResult = Math.Round(tAbs / num * 100, 2);
+            //tBResult.Text = Convert.ToString($"T(B) = {tResult}%");
         }
 
         private void btTeachNeuron_Click(object sender, EventArgs e)
@@ -170,7 +172,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                ShowInfo(null, e);
+                gBoxAddPoints.Enabled = gBoxAddPoints.Visible = true;
             }
 
             if (btnFlag)
@@ -200,8 +202,8 @@ namespace WindowsFormsApp1
 
         private void btGenKlasters_Click(object sender, EventArgs e)
         {
-            A = 0;
-            B = 0;
+            double lA = 0;
+            double lB = 0;
             MaxItteration = 0;
 
             N = Convert.ToInt32(tbNumOfPoints.Text);
@@ -264,50 +266,44 @@ namespace WindowsFormsApp1
             for (int i = 0; i < N * 2; i++)
             {
                 double[] hello = new double[3];
-
+                
                 for (int j = 0; j < 3; j++)
                     hello[j] = features[i, j];
 
                 if (_Sigmoid(_Hipothesis(hello, weight), 1) > 0.5)
                 {
                     chart1.Series[3].Points.AddXY(features[i, 1], features[i, 2]);
-                    A++;
+                    if (chart1.Series[1].Points.Any(el => el.XValue == features[i, 1] && el.YValues.Contains(features[i, 2])))
+                    {
+                        lA++;
+                    };
                 }
                 else
                 {
                     chart1.Series[2].Points.AddXY(features[i, 1], features[i, 2]);
-                    B++;
+                    if (chart1.Series[0].Points.Any(el => el.XValue == features[i, 1] && el.YValues.Contains(features[i, 2])))
+                    {
+                        lB++;
+                    };
                 }
+
                 MaxItteration++;
             }
-           
-            var a = chart1.Series[3].Points.Count;
-            var b = chart1.Series[2].Points.Count;
 
-            int num = Convert.ToInt32(tbNumOfPoints.Text);
 
-            double tAbs = num - Math.Abs(num - A);
-            double tResult = Math.Round(tAbs / num * 100, 2);
-            tAResult.Text = Convert.ToString($"T(A) = {tResult}%");
-
-            tAbs = num - Math.Abs(num - B);
-            tResult = Math.Round(tAbs / num * 100, 2);
-            tBResult.Text = Convert.ToString($"T(B) = {tResult}%");
+            tAResult.Text = $"T(A) = {(lA / N) * 100}%";
+            tBResult.Text = $"T(B) = {(lB / N) * 100}%";
 
             chart1.Series[2].Enabled = false;
             chart1.Series[3].Enabled = false;
 
             chart1.Series[4].Points.AddXY(pX, _X(weight[1], weight[2], weight[0]));
             chart1.Series[4].Points.AddXY(pY, _Y(weight[1], weight[2], weight[0]));
-
-            //label8.Text = Convert.ToString("T(A) = ") + Convert.ToString(A / Convert.ToDouble(textBox2.Text) * 100) + "%";
-            //label9.Text = Convert.ToString("T(B) = ") + Convert.ToString(B / Convert.ToDouble(textBox2.Text) * 100) + "%";
         }
 
         private void ShowInfo(object sender, EventArgs e)
         {
             gBoxInfo.Enabled = gBoxInfo.Visible = true;
-            gBoxAddPoints.Enabled = gBoxAddPoints.Visible = true;
         }
 
         private void HideInfo(object sender, EventArgs e)
@@ -316,25 +312,21 @@ namespace WindowsFormsApp1
             gBoxAddPoints.Enabled = gBoxAddPoints.Visible = false;
         }
 
-        private void chBoxRandomPoint_CheckedChanged(object sender, EventArgs e)
+        private void btRandomArr_Click(object sender, EventArgs e)
         {
+            ShowInfo(null, e);
+
             Random rnd = new Random();
-            for (uint i = 0; i < 1000; i++)
+            for (uint i = 0; i < MAX_NUMBER; i++)
             {
                 double x = rnd.NextDouble() * 10 - 5;
                 double y = rnd.NextDouble() * 10 - 5;
                 double[] hello = { 1, x, y };
 
                 if (_Sigmoid(_Hipothesis(hello, weight), 1) <= 0.5)
-                {
-                    chart1.Series[0].Points.AddXY(x, y);
-                    A++;
-                }
+                    chart1.Series[5].Points.AddXY(x, y);
                 else
-                {
-                    chart1.Series[1].Points.AddXY(x, y);
-                    B++;
-                }
+                    chart1.Series[6].Points.AddXY(x, y);
             }
         }
     }

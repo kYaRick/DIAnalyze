@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace WindowsFormsApp1
 {
-    class Klasters
+    static class Klasters
     {
         static public double[,] Initialize_Klasters(int N, double sigmax, double[,] mx, int k)
         {
