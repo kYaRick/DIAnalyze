@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.tbDispersia = new System.Windows.Forms.TextBox();
@@ -51,6 +53,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.gBoxAddPoints = new System.Windows.Forms.GroupBox();
+            this.btRandomArr = new System.Windows.Forms.Button();
             this.btAddPoint = new System.Windows.Forms.Button();
             this.btTeachNeuron = new System.Windows.Forms.Button();
             this.tBoxDelay = new System.Windows.Forms.TextBox();
@@ -61,93 +64,106 @@
             this.gBoxFunctions = new System.Windows.Forms.GroupBox();
             this.btGenKlasters = new System.Windows.Forms.Button();
             this.gBoxInfo = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.btRandomArr = new System.Windows.Forms.Button();
+            this.rtbLog = new System.Windows.Forms.RichTextBox();
+            this.lablLog = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.gBoxAddPoints.SuspendLayout();
             this.gBoxInputData.SuspendLayout();
             this.gBoxFunctions.SuspendLayout();
             this.gBoxInfo.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.SystemColors.Control;
             this.chart1.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea2.AxisX.MinorGrid.Enabled = true;
-            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea2.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.AxisX.MinorTickMark.Enabled = true;
-            chartArea2.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.AxisY.MinorGrid.Enabled = true;
-            chartArea2.AxisY.MinorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea2.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.AxisY.MinorTickMark.Enabled = true;
-            chartArea2.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Gray;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.AxisX.MinorGrid.Enabled = true;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisX.MinorTickMark.Enabled = true;
+            chartArea1.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea1.AxisY.MinorGrid.Enabled = true;
+            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisY.MinorTickMark.Enabled = true;
+            chartArea1.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Gray;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(-23, -12);
             this.chart1.Name = "chart1";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series8.IsVisibleInLegend = false;
-            series8.MarkerColor = System.Drawing.Color.Blue;
-            series8.MarkerSize = 14;
-            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series8.Name = "Series1";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series9.MarkerColor = System.Drawing.Color.Red;
-            series9.MarkerSize = 14;
-            series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series9.Name = "Series2";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series10.MarkerBorderColor = System.Drawing.Color.Red;
-            series10.MarkerBorderWidth = 0;
-            series10.MarkerColor = System.Drawing.Color.Blue;
-            series10.MarkerSize = 12;
-            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series10.Name = "Series3";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series11.MarkerBorderColor = System.Drawing.Color.Blue;
-            series11.MarkerBorderWidth = 0;
-            series11.MarkerColor = System.Drawing.Color.Red;
-            series11.MarkerSize = 12;
-            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series11.Name = "Series4";
-            series12.BorderColor = System.Drawing.Color.Black;
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.Black;
-            series12.MarkerSize = 6;
-            series12.Name = "Series5";
-            series12.ShadowColor = System.Drawing.Color.Black;
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series13.LabelForeColor = System.Drawing.Color.LightSalmon;
-            series13.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            series13.MarkerSize = 12;
-            series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series13.Name = "Series6";
-            series13.YValuesPerPoint = 2;
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series14.LabelForeColor = System.Drawing.Color.DodgerBlue;
-            series14.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            series14.MarkerSize = 12;
-            series14.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series14.Name = "Series7";
-            this.chart1.Series.Add(series8);
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
-            this.chart1.Series.Add(series13);
-            this.chart1.Series.Add(series14);
-            this.chart1.Size = new System.Drawing.Size(847, 438);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.IsVisibleInLegend = false;
+            series1.MarkerColor = System.Drawing.Color.Blue;
+            series1.MarkerSize = 14;
+            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series1.Name = "Series1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.MarkerColor = System.Drawing.Color.Red;
+            series2.MarkerSize = 14;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series2.Name = "Series2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.MarkerBorderColor = System.Drawing.Color.Red;
+            series3.MarkerBorderWidth = 0;
+            series3.MarkerColor = System.Drawing.Color.Blue;
+            series3.MarkerSize = 12;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series3.Name = "Series3";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series4.MarkerBorderColor = System.Drawing.Color.Blue;
+            series4.MarkerBorderWidth = 0;
+            series4.MarkerColor = System.Drawing.Color.Red;
+            series4.MarkerSize = 12;
+            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series4.Name = "Series4";
+            series5.BorderColor = System.Drawing.Color.Black;
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.Black;
+            series5.MarkerSize = 6;
+            series5.Name = "Series5";
+            series5.ShadowColor = System.Drawing.Color.Black;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series6.LabelForeColor = System.Drawing.Color.LightSalmon;
+            series6.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            series6.MarkerSize = 12;
+            series6.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series6.Name = "Series6";
+            series6.YValuesPerPoint = 2;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series7.LabelForeColor = System.Drawing.Color.DodgerBlue;
+            series7.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            series7.MarkerSize = 12;
+            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series7.Name = "Series7";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
+            this.chart1.Series.Add(series7);
+            this.chart1.Size = new System.Drawing.Size(767, 438);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -169,7 +185,7 @@
             this.tbDispersia.Name = "tbDispersia";
             this.tbDispersia.Size = new System.Drawing.Size(50, 13);
             this.tbDispersia.TabIndex = 2;
-            this.tbDispersia.Text = "0.5";
+            this.tbDispersia.Text = "0.2";
             // 
             // tbNumOfPoints
             // 
@@ -200,7 +216,7 @@
             this.tbLearningSpeed.Name = "tbLearningSpeed";
             this.tbLearningSpeed.Size = new System.Drawing.Size(50, 13);
             this.tbLearningSpeed.TabIndex = 6;
-            this.tbLearningSpeed.Text = "0.1";
+            this.tbLearningSpeed.Text = "0.2";
             // 
             // label3
             // 
@@ -291,13 +307,26 @@
             this.gBoxAddPoints.Controls.Add(this.label5);
             this.gBoxAddPoints.Controls.Add(this.label6);
             this.gBoxAddPoints.Enabled = false;
-            this.gBoxAddPoints.Location = new System.Drawing.Point(814, 240);
+            this.gBoxAddPoints.Location = new System.Drawing.Point(726, 344);
             this.gBoxAddPoints.Name = "gBoxAddPoints";
             this.gBoxAddPoints.Size = new System.Drawing.Size(135, 112);
             this.gBoxAddPoints.TabIndex = 15;
             this.gBoxAddPoints.TabStop = false;
             this.gBoxAddPoints.Text = "Add a point";
             this.gBoxAddPoints.Visible = false;
+            // 
+            // btRandomArr
+            // 
+            this.btRandomArr.BackColor = System.Drawing.Color.Transparent;
+            this.btRandomArr.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btRandomArr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRandomArr.Location = new System.Drawing.Point(9, 82);
+            this.btRandomArr.Name = "btRandomArr";
+            this.btRandomArr.Size = new System.Drawing.Size(120, 25);
+            this.btRandomArr.TabIndex = 16;
+            this.btRandomArr.Text = "Add random array";
+            this.btRandomArr.UseVisualStyleBackColor = false;
+            this.btRandomArr.Click += new System.EventHandler(this.btRandomArr_Click);
             // 
             // btAddPoint
             // 
@@ -373,7 +402,7 @@
             this.gBoxInputData.Controls.Add(this.tbLearningSpeed);
             this.gBoxInputData.Controls.Add(this.label4);
             this.gBoxInputData.Controls.Add(this.tbMaxItter);
-            this.gBoxInputData.Location = new System.Drawing.Point(814, 12);
+            this.gBoxInputData.Location = new System.Drawing.Point(726, 116);
             this.gBoxInputData.Name = "gBoxInputData";
             this.gBoxInputData.Size = new System.Drawing.Size(135, 98);
             this.gBoxInputData.TabIndex = 20;
@@ -387,7 +416,7 @@
             this.gBoxFunctions.Controls.Add(this.tBoxDelay);
             this.gBoxFunctions.Controls.Add(this.lablDelay);
             this.gBoxFunctions.Controls.Add(this.chBoxRedPoints);
-            this.gBoxFunctions.Location = new System.Drawing.Point(814, 116);
+            this.gBoxFunctions.Location = new System.Drawing.Point(726, 220);
             this.gBoxFunctions.Name = "gBoxFunctions";
             this.gBoxFunctions.Size = new System.Drawing.Size(135, 118);
             this.gBoxFunctions.TabIndex = 21;
@@ -412,7 +441,7 @@
             this.gBoxInfo.Controls.Add(this.tAResult);
             this.gBoxInfo.Controls.Add(this.tBResult);
             this.gBoxInfo.Enabled = false;
-            this.gBoxInfo.Location = new System.Drawing.Point(814, 353);
+            this.gBoxInfo.Location = new System.Drawing.Point(726, 457);
             this.gBoxInfo.Name = "gBoxInfo";
             this.gBoxInfo.Size = new System.Drawing.Size(135, 52);
             this.gBoxInfo.TabIndex = 22;
@@ -420,33 +449,167 @@
             this.gBoxInfo.Text = "Info";
             this.gBoxInfo.Visible = false;
             // 
-            // richTextBox1
+            // rtbLog
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 413);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(937, 114);
-            this.richTextBox1.TabIndex = 23;
-            this.richTextBox1.Text = "";
+            this.rtbLog.BackColor = System.Drawing.SystemColors.Control;
+            this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbLog.Location = new System.Drawing.Point(12, 432);
+            this.rtbLog.Name = "rtbLog";
+            this.rtbLog.ReadOnly = true;
+            this.rtbLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.rtbLog.Size = new System.Drawing.Size(703, 119);
+            this.rtbLog.TabIndex = 23;
+            this.rtbLog.Text = "";
             // 
-            // btRandomArr
+            // lablLog
             // 
-            this.btRandomArr.BackColor = System.Drawing.Color.Transparent;
-            this.btRandomArr.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btRandomArr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btRandomArr.Location = new System.Drawing.Point(9, 82);
-            this.btRandomArr.Name = "btRandomArr";
-            this.btRandomArr.Size = new System.Drawing.Size(120, 25);
-            this.btRandomArr.TabIndex = 16;
-            this.btRandomArr.Text = "Add random array";
-            this.btRandomArr.UseVisualStyleBackColor = false;
-            this.btRandomArr.Click += new System.EventHandler(this.btRandomArr_Click);
+            this.lablLog.AutoSize = true;
+            this.lablLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lablLog.Location = new System.Drawing.Point(9, 413);
+            this.lablLog.Name = "lablLog";
+            this.lablLog.Size = new System.Drawing.Size(37, 16);
+            this.lablLog.TabIndex = 20;
+            this.lablLog.Text = "Logs";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Location = new System.Drawing.Point(726, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(135, 98);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Input data";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(73, 16);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(19, 13);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "-1";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(40, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "x1 = ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(40, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "y1 = ";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Location = new System.Drawing.Point(73, 35);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(19, 13);
+            this.textBox2.TabIndex = 4;
+            this.textBox2.Text = "-3";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(40, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = " x2 = ";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox3.Location = new System.Drawing.Point(73, 54);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(19, 13);
+            this.textBox3.TabIndex = 6;
+            this.textBox3.Text = "3";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(40, 73);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "y2 =";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox4.Location = new System.Drawing.Point(73, 73);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(19, 13);
+            this.textBox4.TabIndex = 8;
+            this.textBox4.Text = "3";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(735, 520);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 25);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Clear log";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // chart2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            this.chart2.Location = new System.Drawing.Point(867, 12);
+            this.chart2.Name = "chart2";
+            series8.BorderWidth = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            series8.MarkerBorderColor = System.Drawing.Color.Blue;
+            series8.MarkerColor = System.Drawing.Color.RoyalBlue;
+            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series8.Name = "Series1";
+            this.chart2.Series.Add(series8);
+            this.chart2.Size = new System.Drawing.Size(355, 380);
+            this.chart2.TabIndex = 25;
+            this.chart2.Text = "chart2";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 535);
-            this.Controls.Add(this.richTextBox1);
+            this.ClientSize = new System.Drawing.Size(865, 563);
+            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lablLog);
+            this.Controls.Add(this.rtbLog);
             this.Controls.Add(this.gBoxInfo);
             this.Controls.Add(this.gBoxFunctions);
             this.Controls.Add(this.gBoxInputData);
@@ -467,7 +630,11 @@
             this.gBoxFunctions.PerformLayout();
             this.gBoxInfo.ResumeLayout(false);
             this.gBoxInfo.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -498,8 +665,20 @@
         private System.Windows.Forms.GroupBox gBoxFunctions;
         private System.Windows.Forms.Button btGenKlasters;
         private System.Windows.Forms.GroupBox gBoxInfo;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbLog;
         private System.Windows.Forms.Button btRandomArr;
+        private System.Windows.Forms.Label lablLog;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
 

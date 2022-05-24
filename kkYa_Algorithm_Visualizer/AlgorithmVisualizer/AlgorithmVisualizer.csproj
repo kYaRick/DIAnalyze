@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>AlgorithmVisualizer</RootNamespace>
     <AssemblyName>AlgorithmVisualizer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\DijkstrasAlgorithm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DijkstrasAlgorithm.Designer.cs">
+      <DependentUpon>DijkstrasAlgorithm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WaveAlgorithm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +196,9 @@
     <EmbeddedResource Include="Forms\Dialogs\StartEndNodeDialog.resx">
       <DependentUpon>StartEndNodeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DijkstrasAlgorithm.resx">
+      <DependentUpon>DijkstrasAlgorithm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\WaveAlgorithm.resx">
       <DependentUpon>WaveAlgorithm.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,7 +234,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -228,6 +246,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <AdditionalFiles Include="Resources\input data.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

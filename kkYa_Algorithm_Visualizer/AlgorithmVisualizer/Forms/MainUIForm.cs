@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 
 using Wave_Algorithm;
+using DjikstraRoads;
 
 namespace AlgorithmVisualizer.Forms
 {
@@ -19,7 +20,7 @@ namespace AlgorithmVisualizer.Forms
 		{
 			InitializeComponent();
 			// Open graph algo form as child
-			btnWaveAlgos_Click(this, null);
+			btnDeijkstasAlg_Click(this, null);
 			// Bound panelLog size between 2/10 and 2 of its initial size
 			logMinHeight = (int)(panelLog.Height * 0.2f);
 			logMaxHeight = (int)(panelLog.Height * 2f);
@@ -47,6 +48,7 @@ namespace AlgorithmVisualizer.Forms
 		private void btnMazeGenerator_Click(object sender, EventArgs e) => OpenChildForm(new MazeGenForm(this));
 		private void btnGraphAlgos_Click(object sender, EventArgs e) => OpenChildForm(new GraphAlgoForm(this));
 		private void btnTreeAlgos_Click(object sender, EventArgs e) => OpenChildForm(new TreeAlgoForm(this));
+		private void btnDeijkstasAlg_Click(object sender, EventArgs e) => OpenChildForm(new DijkstrasAlgorithm(this));
 		#endregion
 
 		#region panelLog resize

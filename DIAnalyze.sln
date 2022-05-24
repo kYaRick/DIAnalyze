@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kkYa_NNH_lab_1", "kkYa_NNH_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kkYa_NNH_lab_2", "kkYa_NNH_lab_2\WindowsFormsApp1\kkYa_NNH_lab_2.csproj", "{7D73842D-D8C9-4A4C-8D1B-0FD77C533CA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmVisualizer", "algorithm-visualizer\AlgorithmVisualizer\AlgorithmVisualizer.csproj", "{3290566E-4DAB-42DF-A3E3-976ED207BE82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmVisualizer", "kkYa_Algorithm_Visualizer\AlgorithmVisualizer\AlgorithmVisualizer.csproj", "{3290566E-4DAB-42DF-A3E3-976ED207BE82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +121,7 @@ Global
 		{7D73842D-D8C9-4A4C-8D1B-0FD77C533CA5}.Release|x86.ActiveCfg = Release|Any CPU
 		{7D73842D-D8C9-4A4C-8D1B-0FD77C533CA5}.Release|x86.Build.0 = Release|Any CPU
 		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Debug|x64.Build.0 = Debug|Any CPU
 		{3290566E-4DAB-42DF-A3E3-976ED207BE82}.Debug|x86.ActiveCfg = Debug|Any CPU

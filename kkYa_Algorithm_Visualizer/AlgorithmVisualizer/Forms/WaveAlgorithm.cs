@@ -49,8 +49,9 @@ namespace Wave_Algorithm
             
             dataGridView1.Click += dataGridClear;
             dataGridView1.DoubleClick += dataGridClear;
+            chbShowWeights.CheckedChanged += HideOrShowWeights;
 
-            var buttons = new[] { button1, button2, button4 };
+            var buttons = new[] { btnSetMazeSize, btnFullClean, button4 };
             foreach (var button in buttons)
                 button.Click += rtbLogClean;
         }
@@ -92,11 +93,25 @@ namespace Wave_Algorithm
                 {
                     dataGridView1[j, i].Style.SelectionForeColor = Color.Transparent;
                     dataGridView1[j, i].Style.SelectionBackColor = Color.Transparent;
-                    dataGridView1[j, i].Style.ForeColor = chbShowWeights.Checked ? Color.Black : Color.Transparent;
+                    dataGridView1[j, i].Style.ForeColor = Color.Transparent;
 
                     dataGridView1[j,i].Value = -1;
                     dataGridView1[j,i].Style.BackColor = Color.White;
                 }
+        }
+
+        private void HideOrShowWeights(object sender, EventArgs e)
+        {
+            if (sender is CheckBox localSender)
+            {
+                bool isShow = localSender.Checked;
+
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        dataGridView1[j, i].Style.ForeColor = isShow ? Color.DarkGray : Color.Transparent;
+                    }
+            }
         }
 
         private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -208,10 +223,17 @@ namespace Wave_Algorithm
                     MarkUnmarkedCells(WorkMatrix, OldFront[i].X, OldFront[i].Y, NewFront, Step, markMode);
                 Step++;
                 ShowMatrix(WorkMatrix, NewFront, AllFront);
-                //System.Threading.Thread.Sleep(miliseconds);
+
+                if (!chbIsIgnoreSpeed.Checked)
+                {
+                    System.Threading.Thread.Sleep(miliseconds);
+                    dataGridView1.Refresh();
+                }
             }
             while (!NewFront.Contains(FinishPoint) && (NewFront.Count > 0));
-                dataGridView1.Refresh();
+            
+            dataGridView1.Refresh();
+            
             sw.Stop();
             if (NewFront.Count == 0)
             {
@@ -231,8 +253,6 @@ namespace Wave_Algorithm
                 dataGridView1[Path[i].Y, Path[i].X].Style.BackColor = Color.Yellow;
             for (int i = Path.Count -1; i > -1; i--)
                 pathInfo += "[" + Path[i].X + "; " + Path[i].Y + "] ";
-            //MessageBox.Show("Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (Path.Count-1) +"\n\t\t\tTime - "+sw.Elapsed.Milliseconds.ToString() + " ms",
-            //    "Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             rtbLog.Text += "Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (Path.Count - 1) + "\n\t\t\tTime - " + sw.Elapsed.Milliseconds.ToString() + " ms\n";
         }
@@ -296,7 +316,12 @@ namespace Wave_Algorithm
                     MarkUnmarkedCells(WorkMatrix, OldFront2[i].X, OldFront2[i].Y, NewFront2, NewFront1, Step, markMode, ref MeetPoint);
                 Step++;
                 ShowMatrix(WorkMatrix, NewFront1, NewFront2, AllFront1, AllFront2);
-                //System.Threading.Thread.Sleep(miliseconds);
+                
+                if (!chbIsIgnoreSpeed.Checked)
+                {
+                    System.Threading.Thread.Sleep(miliseconds);
+                    dataGridView1.Refresh();
+                }
             }
             while ((NewFront2.Count > 0) && (NewFront1.Count > 0) && (MeetPoint.X == -100500 & MeetPoint.Y == -100500));
 
@@ -330,8 +355,6 @@ namespace Wave_Algorithm
                 dataGridView1[Path[i].Y, Path[i].X].Style.BackColor = Color.Yellow;
             for (int i = Path.Count - 1; i > -1; i--)
                 pathInfo += "[" + Path[i].X + "; " + Path[i].Y + "] ";
-            //MessageBox.Show("Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (f ? (Path.Count - 2) : (Path.Count - 1)) + "\n\t\t\tTime - " + sw.Elapsed.Milliseconds.ToString() + " ms",
-            //    "Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             rtbLog.Text += "Path found:\n\t" + pathInfo + ".\nThe length of the path - " + (f ? (Path.Count - 2) : (Path.Count - 1)) + "\n\t\t\tTime - " + sw.Elapsed.Milliseconds.ToString() + " ms\n";
         }
@@ -1867,13 +1890,15 @@ namespace Wave_Algorithm
 
         private void rtbLogClean(object sender, EventArgs e) { rtbLog.Text = ""; }
 
-        private void chbShowWeights_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbExsamples_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnRandMaze_Click(object sender, EventArgs e)
+        {
+            var wallPercent = Convert.ToDouble(nudWallsPerc.Value)/100;
+
             var rnd = new Random();
             for (int i = 0; i < dataGridView1.RowCount; i++)
                 for (int j = 0; j < dataGridView1.ColumnCount; j++)
@@ -1881,11 +1906,11 @@ namespace Wave_Algorithm
                     var vertex = dataGridView1[j, i];
                     rnd.NextDouble();
 
-                    if (rnd.NextDouble()>0.5)
+                    if (rnd.NextDouble() < wallPercent)
                     {
                         vertex.Value = -9;
                         vertex.Style.BackColor = Color.Black;
-                    }   
+                    }
                     else
                     {
                         vertex.Value = -1;
@@ -1893,8 +1918,6 @@ namespace Wave_Algorithm
                     }
 
                 }
-
-            
         }
     }
 }

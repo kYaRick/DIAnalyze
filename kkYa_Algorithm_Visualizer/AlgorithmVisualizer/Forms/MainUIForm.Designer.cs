@@ -37,6 +37,7 @@ namespace AlgorithmVisualizer.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLog = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.btnDjikstaAlg = new System.Windows.Forms.Button();
             this.panelSidemenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@ namespace AlgorithmVisualizer.Forms
             // 
             this.panelSidemenu.AutoScroll = true;
             this.panelSidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSidemenu.Controls.Add(this.btnDjikstaAlg);
             this.panelSidemenu.Controls.Add(this.btnTreeAlgos);
             this.panelSidemenu.Controls.Add(this.btnGraphAlgos);
             this.panelSidemenu.Controls.Add(this.btnMazeGenerator);
@@ -152,6 +154,23 @@ namespace AlgorithmVisualizer.Forms
             this.panelChildForm.Size = new System.Drawing.Size(1115, 542);
             this.panelChildForm.TabIndex = 2;
             // 
+            // btnDjikstaAlg
+            // 
+            this.btnDjikstaAlg.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDjikstaAlg.FlatAppearance.BorderSize = 0;
+            this.btnDjikstaAlg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDjikstaAlg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDjikstaAlg.ForeColor = System.Drawing.Color.White;
+            this.btnDjikstaAlg.Location = new System.Drawing.Point(0, 202);
+            this.btnDjikstaAlg.Name = "btnDjikstaAlg";
+            this.btnDjikstaAlg.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDjikstaAlg.Size = new System.Drawing.Size(149, 54);
+            this.btnDjikstaAlg.TabIndex = 5;
+            this.btnDjikstaAlg.Text = "Djikstra\'s algorithms";
+            this.btnDjikstaAlg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDjikstaAlg.UseVisualStyleBackColor = true;
+            this.btnDjikstaAlg.Click += new System.EventHandler(this.btnDeijkstasAlg_Click);
+            // 
             // MainUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,5 +197,6 @@ namespace AlgorithmVisualizer.Forms
 		private System.Windows.Forms.Panel panelChildForm;
 		private System.Windows.Forms.Button btnGraphAlgos;
 		private System.Windows.Forms.Button btnTreeAlgos;
-	}
+        private System.Windows.Forms.Button btnDjikstaAlg;
+    }
 }
