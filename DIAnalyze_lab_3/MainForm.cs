@@ -11,7 +11,7 @@ namespace DIAnalyze_lab_3
         public MainForm()
         {
             InitializeComponent();
-            ProgramName.Text = Text;
+            ProgramName.Text = "kYa_DIA_lab_3_"+Text;
             comboboxMethods.SelectedIndex = 0;
             BuildGraph(this);
         }
@@ -67,7 +67,6 @@ namespace DIAnalyze_lab_3
                         form.mainChart.Series[i].Points.AddXY(x, graphs[i][x]);
                     }
                 }
-
             form.comboboxMethods_SelectedIndexChanged(form.comboboxMethods, EventArgs.Empty);
         }
 
@@ -87,7 +86,7 @@ namespace DIAnalyze_lab_3
             {
                 resultBox.Size = new Size(resultBox.Size.Width, 130);
                 btShowInfo.Location = new Point(25, 103);
-                updateButton.Location = new Point(926, 400);
+                updateButton.Location = new Point(1680, 400);
                 a2Lable.Visible = false;
                 resTBa2.Visible = false;
                 radioFLinear.Checked = true;
@@ -100,7 +99,7 @@ namespace DIAnalyze_lab_3
             {
                 resultBox.Size = new Size(resultBox.Size.Width, 160);
                 btShowInfo.Location = new Point(25, 130);
-                updateButton.Location = new Point(926, 430);
+                updateButton.Location = new Point(1680, 430);
                 a2Lable.Visible = true;
                 resTBa2.Visible = true;
                 radioFSquare.Checked = true;

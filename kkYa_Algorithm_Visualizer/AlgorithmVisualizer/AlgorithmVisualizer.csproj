@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3290566E-4DAB-42DF-A3E3-976ED207BE82}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AlgorithmVisualizer</RootNamespace>
+    <AssemblyName>AlgorithmVisualizer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\DijkstrasAlgorithm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DijkstrasAlgorithm.Designer.cs">
+      <DependentUpon>DijkstrasAlgorithm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaveAlgorithm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaveAlgorithm.Designer.cs">
+      <DependentUpon>WaveAlgorithm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presets\Preset.cs" />
+    <Compile Include="Tracers\ArrayTracer.cs" />
+    <Compile Include="DataStructures\AVLTree\AVLTree.cs" />
+    <Compile Include="DataStructures\BinaryTree\BinarySearchTree.cs" />
+    <Compile Include="DataStructures\AVLTree\AVLNode.cs" />
+    <Compile Include="DataStructures\BinaryTree\BinaryTreeTests.cs" />
+    <Compile Include="DataStructures\BinaryTree\TreeUtils.cs" />
+    <Compile Include="DataStructures\BinaryTree\BinNode.cs" />
+    <Compile Include="DataStructures\BinaryTree\TreeConsolePrinter.cs" />
+    <Compile Include="DataStructures\BinaryTree\TreeVisualizer.cs" />
+    <Compile Include="DataStructures\DisjointSet.cs" />
+    <Compile Include="DataStructures\Heap\BinaryMinHeap.cs" />
+    <Compile Include="DataStructures\Heap\MinIndexedDHeap.cs" />
+    <Compile Include="Forms\Dialogs\AlgoDetails\DetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\AlgoDetails\DetailsDialog.Designer.cs">
+      <DependentUpon>DetailsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FDGVConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FDGVConfigForm.Designer.cs">
+      <DependentUpon>FDGVConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\StartEndNodeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\StartEndNodeDialog.Designer.cs">
+      <DependentUpon>StartEndNodeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GraphAlgoSettings.cs" />
+    <Compile Include="Forms\MazeGenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MazeGenForm.Designer.cs">
+      <DependentUpon>MazeGenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\EdgeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\EdgeDialog.Designer.cs">
+      <DependentUpon>EdgeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\NewPresetDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\NewPresetDialog.Designer.cs">
+      <DependentUpon>NewPresetDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\PresetDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\PresetDialog.Designer.cs">
+      <DependentUpon>PresetDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\SimpleDialogs.cs" />
+    <Compile Include="Forms\GraphAlgoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GraphAlgoForm.Designer.cs">
+      <DependentUpon>GraphAlgoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TreeAlgoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TreeAlgoForm.Designer.cs">
+      <DependentUpon>TreeAlgoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphTheory\Algorithms\BellmanFords.cs" />
+    <Compile Include="GraphTheory\Algorithms\BFS.cs" />
+    <Compile Include="GraphTheory\Algorithms\ConnectedComponentsDFS.cs" />
+    <Compile Include="GraphTheory\Algorithms\ConnectedComponentsDisjointSet.cs" />
+    <Compile Include="GraphTheory\Algorithms\DAGSSSP.cs" />
+    <Compile Include="GraphTheory\Algorithms\DFS.cs" />
+    <Compile Include="GraphTheory\Algorithms\EagerDijkstrasSSSP.cs" />
+    <Compile Include="GraphTheory\Algorithms\GraphAlgorithm.cs" />
+    <Compile Include="GraphTheory\Algorithms\KahnsTopSort.cs" />
+    <Compile Include="GraphTheory\Algorithms\KosarajusSCCs.cs" />
+    <Compile Include="GraphTheory\Algorithms\KruskalsMST.cs" />
+    <Compile Include="GraphTheory\Algorithms\LazyDijkstrasSSSP.cs" />
+    <Compile Include="GraphTheory\Algorithms\LazyPrimsMST.cs" />
+    <Compile Include="GraphTheory\Algorithms\TarjansSCCs.cs" />
+    <Compile Include="GraphTheory\Algorithms\TopSortDFS.cs" />
+    <Compile Include="GraphTheory\Edge.cs" />
+    <Compile Include="GraphTheory\FDGV\GraphVisualizer.cs" />
+    <Compile Include="GraphTheory\GNode.cs" />
+    <Compile Include="GraphTheory\Graph.cs" />
+    <Compile Include="GraphTheory\Utils\GraphSerializer.cs" />
+    <Compile Include="GraphTheory\FDGV\Particle.cs" />
+    <Compile Include="GraphTheory\FDGV\Spring.cs" />
+    <Compile Include="GraphTheory\MazeGeneration\Cell.cs" />
+    <Compile Include="GraphTheory\MazeGeneration\MazeSolver.cs" />
+    <Compile Include="Forms\MainUIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainUIForm.Designer.cs">
+      <DependentUpon>MainUIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphTheory\Utils\Colors.cs" />
+    <Compile Include="GraphTheory\Utils\GraphValidator.cs" />
+    <Compile Include="Utils\ArrayUtils.cs" />
+    <Compile Include="Utils\Range.cs" />
+    <Compile Include="Utils\Vector.cs" />
+    <Compile Include="Forms\ArrayAlgoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ArrayAlgoForm.Designer.cs">
+      <DependentUpon>ArrayAlgoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Threading\PauseResumeSleep.cs" />
+    <Compile Include="GraphTheory\MazeGeneration\DFSMazeGenerator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Arrays\ArrayAlgorithms.cs" />
+    <Compile Include="GraphTheory\MazeGeneration\MazeVisualizer.cs" />
+    <Compile Include="Arrays\ArrayVisualizer.cs" />
+    <Compile Include="Tracers\AbstractArrayTracer.cs" />
+    <Compile Include="Tracers\HeapTracer.cs" />
+    <Compile Include="Tracers\IPQTracer.cs" />
+    <Compile Include="Tracers\QueueTracer.cs" />
+    <Compile Include="Tracers\StackTracer.cs" />
+    <EmbeddedResource Include="Forms\Dialogs\AlgoDetails\DetailsDialog.resx">
+      <DependentUpon>DetailsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FDGVConfigForm.resx">
+      <DependentUpon>FDGVConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\StartEndNodeDialog.resx">
+      <DependentUpon>StartEndNodeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DijkstrasAlgorithm.resx">
+      <DependentUpon>DijkstrasAlgorithm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaveAlgorithm.resx">
+      <DependentUpon>WaveAlgorithm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MazeGenForm.resx">
+      <DependentUpon>MazeGenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\EdgeDialog.resx">
+      <DependentUpon>EdgeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\NewPresetDialog.resx">
+      <DependentUpon>NewPresetDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\PresetDialog.resx">
+      <DependentUpon>PresetDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GraphAlgoForm.resx">
+      <DependentUpon>GraphAlgoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainUIForm.resx">
+      <DependentUpon>MainUIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ArrayAlgoForm.resx">
+      <DependentUpon>ArrayAlgoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TreeAlgoForm.resx">
+      <DependentUpon>TreeAlgoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <AdditionalFiles Include="Resources\input data.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Presets\Imgs\" />
+    <Folder Include="Presets\Serializations\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

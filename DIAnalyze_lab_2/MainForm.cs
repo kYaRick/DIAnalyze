@@ -25,6 +25,7 @@ namespace DIAnalyze_lab_2
             chart1.Series[0].Points.Clear();
             chart1.Series[1].Points.Clear();
             chart1.Series[2].Points.Clear();
+            chart1.Series[3].Points.Clear();
 
             foreach (var item in MyChart)
             {
@@ -32,6 +33,7 @@ namespace DIAnalyze_lab_2
             }
 
             MyChart = a.GetArrPoints(0f, 10f, 0.1f, Method.NoiceFunc);
+            
             foreach (var item in MyChart)
             {
                 chart1.Series[1].Points.AddXY(item[0], item[1]);
@@ -50,13 +52,21 @@ namespace DIAnalyze_lab_2
                 
             }
 
+            MyChart = a.GetArrPoints(0f, 10f, 0.1f, Method.UpdateAvg);
+            foreach (var item in MyChart)
+            {
+                chart1.Series[2].Points.AddXY(item[0], item[1]);
+            }
+
             MyChart = a.GetArrPoints(0f, 10f, 0.1f, Method.MovingAvg);
             tbRandomL.Text = a.GetL.ToString();
             
             foreach (var item in MyChart)
             {
-                chart1.Series[2].Points.AddXY(item[0], item[1]);
+                chart1.Series[3].Points.AddXY(item[0], item[1]);
             }
+
+            
 
         }
 

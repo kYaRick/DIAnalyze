@@ -34,6 +34,7 @@ namespace DIAnalyze_lab_2
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,21 +56,33 @@ namespace DIAnalyze_lab_2
             this.chart1.Location = new System.Drawing.Point(12, 12);
             this.chart1.Name = "chart1";
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series1.Legend = "Legend1";
             series1.Name = "f(x)";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.Red;
             series2.Legend = "Legend1";
             series2.Name = "f(x)+random[-0.25; 0.25]";
+            series3.BorderWidth = 2;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             series3.Legend = "Legend1";
-            series3.Name = "Moving avarage";
+            series3.Name = "Update avarage";
+            series4.BorderWidth = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series4.Legend = "Legend1";
+            series4.Name = "Moving avarage";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(1274, 352);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "Graphics";
@@ -91,7 +104,7 @@ namespace DIAnalyze_lab_2
             // tbRandomL
             // 
             this.tbRandomL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbRandomL.Location = new System.Drawing.Point(1166, 129);
+            this.tbRandomL.Location = new System.Drawing.Point(1166, 156);
             this.tbRandomL.Name = "tbRandomL";
             this.tbRandomL.Size = new System.Drawing.Size(30, 20);
             this.tbRandomL.TabIndex = 3;
@@ -100,7 +113,7 @@ namespace DIAnalyze_lab_2
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Location = new System.Drawing.Point(1132, 155);
+            this.checkBox1.Location = new System.Drawing.Point(1132, 182);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(85, 17);
             this.checkBox1.TabIndex = 4;
@@ -112,7 +125,7 @@ namespace DIAnalyze_lab_2
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(1142, 132);
+            this.label1.Location = new System.Drawing.Point(1142, 159);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 2;
@@ -121,7 +134,7 @@ namespace DIAnalyze_lab_2
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.Location = new System.Drawing.Point(1098, 119);
+            this.panel1.Location = new System.Drawing.Point(1099, 147);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(159, 65);
             this.panel1.TabIndex = 5;
